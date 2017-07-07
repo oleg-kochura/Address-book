@@ -1,0 +1,4 @@
+export const ADD_CONTACT = 'ADD_CONTACT';
+export const REMOVE_CONTACT = 'REMOVE_CONTACT';
+export const SET_ACTIVE_FILTER = 'FILTER_BY_GROUP';
+export const ADD_GROUP = 'ADD_GROUP';
