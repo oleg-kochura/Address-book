@@ -1,6 +1,5 @@
 import { ADD_CONTACT, REMOVE_CONTACT, SET_ACTIVE_FILTER, ADD_GROUP } from '../constants';
 
-
 //   ACTION CREATORS
 
 export function onAddContact(contact) {

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect }          from 'react-redux';
 import { setActiveFilter, addNewGroup } from '../actions';
-// import  GroupsList from './Groups-list';
-
 
 class FilterGroup extends Component {
 	constructor(props) {
@@ -22,8 +20,8 @@ class FilterGroup extends Component {
 	}
 
 	render() {
-		let groups = this.props.groups.filters.map((filter, index) => {
-			return <option key={index} value={filter}>{filter}</option>
+		let groups = this.props.groups.map((group, index) => {
+			return <option key={index} value={group}>{group}</option>
 		});
 		return (
 			<div className="Filter">

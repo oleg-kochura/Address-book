@@ -12,8 +12,8 @@ class GroupsList extends Component {
 	}
 
 	render() {
-		let menuItems = this.props.groups.map((filter, index) => {
-			return  <MenuItem key={index} onClick={() => this.filterByGroup(index)}>{filter}</MenuItem>
+		let menuItems = this.props.groups.map((group, index) => {
+			return  <MenuItem key={index} onClick={() => this.filterByGroup(index)}>{group}</MenuItem>
 		});
 
 		return (
@@ -28,8 +28,7 @@ class GroupsList extends Component {
 
 function mapStateToProps(state) {
 	return {
-		groups: state.groups.filters,
-		activeFilter: state.groups.activeFilter
+		groups: state.groups
 	}
 }
 

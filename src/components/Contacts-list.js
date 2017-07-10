@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect }          from 'react-redux';
 import ContactItem          from './Contact-Item';
+import { Table }           from 'react-bootstrap';
 
 class ContactsList extends Component {
 
@@ -18,11 +19,24 @@ class ContactsList extends Component {
 		}
 
 		return (
-			<ul className="contacts-list">
-				{contacts.map(contact =>
-					<ContactItem key={contact.id} contact={contact}/>
-				)}
-			</ul>
+			<Table bsClass="table table-striped table-hover">
+				<thead>
+				<tr>
+					<th>#</th>
+					<th>First name</th>
+					<th>Last name</th>
+					<th>Email</th>
+					<th>Phone number</th>
+					<th>Address</th>
+				</tr>
+				</thead>
+				<tbody>
+					{contacts.map((contact, index) =>
+						<ContactItem key={index} index={index} contact={contact}/>
+					)}
+				</tbody>
+
+			</Table>
 		);
 	}
 }
@@ -30,7 +44,7 @@ class ContactsList extends Component {
 function mapStateToProps(state) {
 	return {
 		contacts: state.contacts,
-		activeFilter: state.groups.activeFilter
+		activeFilter: state.common.activeFilter
 	}
 }
 

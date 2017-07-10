@@ -4,8 +4,35 @@ body {
   font-family: sans-serif;
 }
 
+.App {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+}
+
 form {
   width: 500px;
   margin: 0 auto;
   text-align: center;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.table {
+  font-size: 12px;
+}
+
+.glyphicon {
+  cursor: pointer;
+}
+
+.table .glyphicon.glyphicon-remove {
+  color: #337ab7;
+}
+
+.table  .glyphicon.glyphicon-remove:hover {
+  color: #23527c;
 }

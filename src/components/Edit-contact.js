@@ -4,12 +4,13 @@ import { Link } from 'react-router';
 
 class EditContact extends Component {
 	render() {
-		let contact = this.props.state.contacts.find(contact => contact.id === +this.props.params.id);
+		// let contact = this.props.state.contacts.find(contact => contact.id === +this.props.params.id);
 		return (
 			<div>
 				<Link to={'/'}>&larr; Back</Link>
-				<p className="name">{`${contact.firstName} ${contact.lastName}`}</p>
-				<p className="phones">{contact.workPhone}, {contact.mobilePhone}</p>
+
+				{/*<p className="name">{`${contact.firstName} ${contact.lastName}`}</p>*/}
+				{/*<p className="phones">{contact.workPhone}, {contact.mobilePhone}</p>*/}
 			</div>
 		);
 	}
