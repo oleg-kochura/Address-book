@@ -1,9 +1,17 @@
-import React from 'react';
+import React                        from 'react';
+import InputItem                    from './Input-item';
 
-const InputsList = ({ title, children }) => (
+const InputsList = ({fields, onChange}) => (
 	<div>
-		<h3>{title}</h3>
-		<div>{children}</div>
+		{fields.map(field => {
+			return <InputItem key={field.name}
+			                  onChange={onChange}
+			                  value={field.value}
+			                  name={field.name}
+			                  label={field.label}
+			                  valid={field.isValid}/>
+
+		})}
 	</div>
 );
 

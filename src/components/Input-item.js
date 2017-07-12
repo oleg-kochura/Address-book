@@ -1,15 +1,21 @@
-import React from 'react';
-import { FormGroup }        from 'react-bootstrap';
-import { ControlLabel }     from 'react-bootstrap';
-import { FormControl }      from 'react-bootstrap';
+import React        from 'react';
+import {
+	FormGroup,
+	ControlLabel,
+	FormControl
+}                   from 'react-bootstrap';
+import { getFieldValidationState }  from '../validation/validate';
 
-const InputItem = ({onChange, value, name, label, valid}) => (
-	<FormGroup validationState={valid}>
+
+const InputItem = ({onChange, value, name, type, label, valid}) => (
+	<FormGroup validationState={getFieldValidationState(valid)}>
 		<ControlLabel>{label}</ControlLabel>
-		<input className="form-control" type="text" placeholder={label}
+		<input className="form-control"
+		       onChange={onChange}
+		       type={type}
 		       name={name}
 		       value={value}
-		       onChange={onChange}/>
+		       placeholder={label}/>
 		<FormControl.Feedback />
 	</FormGroup>
 );

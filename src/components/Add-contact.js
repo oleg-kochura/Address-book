@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
-import { onAddContact }     from '../actions';
 import { connect }          from 'react-redux';
+import { onAddContact }     from '../actions';
 import { Button }           from 'react-bootstrap';
-import InputItem            from './Input-item';
-import InputsList            from './Inputs-list';
-import SelectGroup            from './Select-group';
-import { validateField, validateForm }    from '../validation/validate';
+import {
+	validateField,
+	validateForm }          from '../validation/validate';
+import InputsList           from './Inputs-list';
+import SelectGroup          from './Select-group';
+import Popup                from './Popup';
 import { fields }           from './availableFormFields';
+import deepAssign           from 'deep-assign';
 
 
 class AddContact extends Component {
@@ -14,91 +17,88 @@ class AddContact extends Component {
 		super(props);
 		this.state = {
 			fields: {},
-			formIsValid: false
+			formIsValid: false,
+			showModal: false
 		};
+
 		this.handleChange = this.handleChange.bind(this);
 		this.addContact = this.addContact.bind(this);
+		this.addField = this.addField.bind(this);
+	}
+
+	openModal = () => this.setState({showModal: true});
+	closeModal= () => this.setState({showModal: false});
+	getFieldsToAdd = () => Object.values(this.state.fields).filter(field => field.visible === false);
+	getFieldsToValidate = () => Object.values(this.state.fields).filter(field => field.visible === true);
+
+
+	componentDidMount() {
+		const newFields = deepAssign({}, fields);
+		this.setState({fields: newFields})
 	}
 
 	handleChange(e) {
 		const name = e.target.name;
 		const value = e.target.value;
-		const isValid = validateField(name, value);
-		const fields = {
-							...this.state.fields,
-							[name]: {
-								value,
-								isValid
-							}
-						};
+		const field = deepAssign({}, this.state.fields[name]);
 
-		this.setState({fields}, () => this.setState({
-			formIsValid: validateForm(this.state.fields)
-		}));
+		field.value = value;
+		field.isValid = validateField(name, value);
+
+		this.setState({
+			fields: {
+				...this.state.fields,
+				[name]: field
+			}
+		}, () => this.setState({formIsValid: validateForm(this.getFieldsToValidate())}));
 	}
 
 	addContact(e) {
+		e.preventDefault();
+
 		let contact = {};
 		const keys = Object.keys(this.state.fields);
 		keys.forEach(key => contact[key] = this.state.fields[key].value);
 
 		this.props.onAddContact(contact);
 		this.resetForm();
-		e.preventDefault();
 	}
 
 	resetForm() {
-		this.setState({fields: {}})
-	}
-
-	setInitialValue(inputName) {
-		return this.state.fields[inputName] ? this.state.fields[inputName].value : '';
-	}
-
-	getFieldValidationState(inputName) {
-		if (this.state.fields[inputName]) {
-			return this.state.fields[inputName].isValid ? 'success' : 'error';
+		const fields = deepAssign({}, this.state.fields);
+		for (let key in fields) {
+			fields[key].value = '';
+			fields[key].isValid = null;
 		}
+		this.setState({fields, formIsValid: false});
+	}
 
-		else return null;
+	addField(name) {
+		const fields = deepAssign({}, this.state.fields);
+		fields[name].visible = true;
+
+		this.setState({fields}, () => this.setState({
+			formIsValid: validateForm(this.getFieldsToValidate())
+		}));
 	}
 
 	render() {
 		return (
 			<form onSubmit={this.addContact}>
-
-				<InputItem onChange={this.handleChange}
-				           value={this.setInitialValue('firstName')} name="firstName" label="First name"
-				           valid={this.getFieldValidationState('firstName')}/>
-
-				<InputItem onChange={this.handleChange}
-				           value={this.setInitialValue('lastName')} name="lastName" label="Last name"
-				           valid={this.getFieldValidationState('lastName')}/>
-
-				<InputItem onChange={this.handleChange}
-				           value={this.setInitialValue('country')} name="country" label="Country"
-				           valid={this.getFieldValidationState('country')}/>
-
-				<InputItem onChange={this.handleChange}
-				           value={this.setInitialValue('city')} name="city" label="City"
-				           valid={this.getFieldValidationState('city')}/>
-
-				<InputItem onChange={this.handleChange}
-				           value={this.setInitialValue('email')}
-				           name="email" label="Email" valid={this.getFieldValidationState('email')}/>
-
-				<InputItem onChange={this.handleChange}
-				           value={this.setInitialValue('workPhone')} name="workPhone" label="Work phone"
-				           valid={this.getFieldValidationState('workPhone')}/>
-
-				<InputItem onChange={this.handleChange}
-				           value={this.setInitialValue('mobilePhone')} name="mobilePhone" label="Mobile phone"
-				           valid={this.getFieldValidationState('mobilePhone')}/>
+				<InputsList fields={this.getFieldsToValidate()}
+				            onChange={this.handleChange}/>
 
 				<SelectGroup onChange={this.handleChange}/>
 
 				<Button type="submit" disabled={!this.state.formIsValid}>Add contact</Button>
 
+				<Button onClick={this.openModal}>Add field</Button>
+
+				<Popup title="Add new field"
+				       show={this.state.showModal}
+				       onHide={this.closeModal}
+				       fields={this.getFieldsToAdd()}
+				       addField={this.addField}/>
 			</form>
 		);
 	}

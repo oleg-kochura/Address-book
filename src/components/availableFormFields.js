@@ -4,7 +4,7 @@ export const fields = {
 		label: 'First name',
 		type: 'text',
 		value: '',
-		isValid: false,
+		isValid: null,
 		visible: true
 	},
 	lastName: {
@@ -12,7 +12,7 @@ export const fields = {
 		label: 'Last name',
 		type: 'text',
 		value: '',
-		isValid: false,
+		isValid: null,
 		visible: true
 	},
 	country: {
@@ -20,7 +20,7 @@ export const fields = {
 		label: 'Country',
 		type: 'text',
 		value: '',
-		isValid: false,
+		isValid: null,
 		visible: false
 	},
 	city: {
@@ -28,7 +28,7 @@ export const fields = {
 		label: 'City',
 		type: 'text',
 		value: '',
-		isValid: false,
+		isValid: null,
 		visible: false
 	},
 	email: {
@@ -36,7 +36,7 @@ export const fields = {
 		label: 'Email',
 		type: 'email',
 		value: '',
-		isValid: false,
+		isValid: null,
 		visible: false
 	},
 	workPhone: {
@@ -44,7 +44,7 @@ export const fields = {
 		label: 'Work phone',
 		type: 'tel',
 		value: '',
-		isValid: false,
+		isValid: null,
 		visible: true
 	},
 	mobilePhone: {
@@ -52,7 +52,7 @@ export const fields = {
 		label: 'Mobile phone',
 		type: 'tel',
 		value: '',
-		isValid: false,
+		isValid: null,
 		visible: false
 	}
 };

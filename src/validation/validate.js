@@ -17,6 +17,17 @@ export function validateField(fieldName, value) {
 	}
 }
 
+export function getFieldValidationState(isValid) {
+	switch (isValid) {
+		case true:
+			return 'success';
+		case false:
+			return 'error';
+		default:
+			return null;
+	}
+}
+
 export function validateForm(formFields) {
-	return Object.values(formFields).every(key => key.isValid === true);
+	return formFields.every(key => key.isValid === true);
 }
