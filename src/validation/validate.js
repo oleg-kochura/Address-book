@@ -4,12 +4,12 @@ export function validateField(fieldName, value) {
 		case 'lastName':
 		case 'country':
 		case 'city':
-			return value.length > 2;
+			return value ? value.length > 2 : null;
 		case 'email':
-			return Boolean(value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i));
+			return value ? Boolean(value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) : null;
 		case 'workPhone':
 		case 'mobilePhone':
-			return Boolean(value.match(/^\d{10}$/));
+			return value ? Boolean(value.match(/^\d{10}$/)) : null;
 		case 'group':
 			return true;
 		default:
@@ -29,5 +29,5 @@ export function getFieldValidationState(isValid) {
 }
 
 export function validateForm(formFields) {
-	return formFields.every(key => key.isValid === true);
+	return formFields.every(key => key.isValid === true || key.isValid === null);
 }

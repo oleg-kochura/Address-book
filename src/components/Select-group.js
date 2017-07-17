@@ -1,30 +1,20 @@
-import React, { Component } from 'react';
-import { connect }          from 'react-redux';
-import { FormGroup }        from 'react-bootstrap';
-import { ControlLabel }     from 'react-bootstrap';
-import { FormControl }      from 'react-bootstrap';
+import React            from 'react';
+import { FormGroup }    from 'react-bootstrap';
+import { ControlLabel } from 'react-bootstrap';
+import { FormControl }  from 'react-bootstrap';
 
-class SelectGroup extends Component {
-	render() {
-		const options = this.props.groups.map((group, index) => {
-			return <option key={index} value={group}>{group}</option>
-		});
+const SelectGroup = ({groups, selected, onSelect}) => (
+	<FormGroup>
+		<ControlLabel>Group:</ControlLabel>
+		<FormControl defaultValue={selected} onChange={onSelect}
+		             componentClass="select"
+		             name="group">
 
-		return (
-			<FormGroup>
-			    <ControlLabel>Select</ControlLabel>
-			    <FormControl onChange={this.props.onChange} componentClass="select" name="group">
-			        {options}
-			    </FormControl>
-			</FormGroup>
-		)
-	}
-}
+			{groups.map((group, index) =>
+				<option key={index} value={group}>{group}</option>
+			)}
+		</FormControl>
+	</FormGroup>
+);
 
-function mapStateToProps(state) {
-	return {
-		groups: state.groups
-	}
-}
-
-export default connect(mapStateToProps, null)(SelectGroup);
+export default SelectGroup;

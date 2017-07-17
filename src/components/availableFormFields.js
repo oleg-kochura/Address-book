@@ -1,4 +1,4 @@
-export const fields = {
+export const formFields = {
 	firstName: {
 		name: 'firstName',
 		label: 'First name',
@@ -15,30 +15,6 @@ export const fields = {
 		isValid: null,
 		visible: true
 	},
-	country: {
-		name: 'country',
-		label: 'Country',
-		type: 'text',
-		value: '',
-		isValid: null,
-		visible: false
-	},
-	city: {
-		name: 'city',
-		label: 'City',
-		type: 'text',
-		value: '',
-		isValid: null,
-		visible: false
-	},
-	email: {
-		name: 'email',
-		label: 'Email',
-		type: 'email',
-		value: '',
-		isValid: null,
-		visible: false
-	},
 	workPhone: {
 		name: 'workPhone',
 		label: 'Work phone',
@@ -51,6 +27,30 @@ export const fields = {
 		name: 'mobilePhone',
 		label: 'Mobile phone',
 		type: 'tel',
+		value: '',
+		isValid: null,
+		visible: false
+	},
+	email: {
+		name: 'email',
+		label: 'Email',
+		type: 'email',
+		value: '',
+		isValid: null,
+		visible: false
+	},
+	country: {
+		name: 'country',
+		label: 'Country',
+		type: 'text',
+		value: '',
+		isValid: null,
+		visible: false
+	},
+	city: {
+		name: 'city',
+		label: 'City',
+		type: 'text',
 		value: '',
 		isValid: null,
 		visible: false

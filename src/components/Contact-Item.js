@@ -3,7 +3,6 @@ import { onRemoveContact } from '../actions';
 import { connect }          from 'react-redux';
 import { Link } from 'react-router';
 
-
 const ContactItem = ({index, contact, onRemoveContact}) => (
 		<tr>
 			<td>{index + 1}</td>

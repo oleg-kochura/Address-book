@@ -3,7 +3,7 @@ import { Modal }    from 'react-bootstrap';
 import { ListGroup }        from 'react-bootstrap';
 import { ListGroupItem }    from 'react-bootstrap';
 
-const Popup = ({title, show, onHide, fields, addField}) => (
+const Popup = ({title, show, onHide, fields, onAddField}) => (
 
 	<Modal show={show} onHide={onHide}>
 		<Modal.Header closeButton>
@@ -12,7 +12,7 @@ const Popup = ({title, show, onHide, fields, addField}) => (
 		<Modal.Body>
 			<ListGroup>
 				{fields.map(field =>
-					<ListGroupItem onClick={() => addField(field.name)}
+					<ListGroupItem onClick={() => onAddField(field.name)}
 					               key={field.name}>{field.label}</ListGroupItem>
 				)}
 			</ListGroup>

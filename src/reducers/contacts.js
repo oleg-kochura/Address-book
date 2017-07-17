@@ -1,18 +1,17 @@
 import { data } from '../data';
-import { ADD_CONTACT, REMOVE_CONTACT } from '../constants';
+import { ADD_CONTACT, EDIT_CONTACT, REMOVE_CONTACT } from '../constants';
 
 const initialState = data;
 
 export default function contacts(state = initialState, action) {
 	switch (action.type) {
 		case ADD_CONTACT:
-			return [...state, action.payload];
+			return [...state, action.contact];
+		case EDIT_CONTACT:
+			const newState = state.filter(contact => contact.id !== action.contact.id);
+			return [...newState, action.contact];
 		case REMOVE_CONTACT:
-			let newState = state;
-			let index = newState.findIndex(((contact) => contact.id === action.payload));
-			newState.splice(index, 1);
-
-			return [...newState];
+			return state.filter(contact => contact.id !== action.id);
 		default:
 			return state;
 	}

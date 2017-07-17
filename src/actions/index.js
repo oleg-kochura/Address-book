@@ -1,18 +1,25 @@
-import { ADD_CONTACT, REMOVE_CONTACT, SET_ACTIVE_FILTER, ADD_GROUP } from '../constants';
+import { ADD_CONTACT, EDIT_CONTACT, REMOVE_CONTACT, SET_ACTIVE_FILTER, ADD_GROUP } from '../constants';
 
 //   ACTION CREATORS
 
 export function onAddContact(contact) {
 	return {
 		type: ADD_CONTACT,
-		payload: contact
+		contact
+	};
+}
+
+export function onEditContact(contact) {
+	return {
+		type: EDIT_CONTACT,
+		contact
 	};
 }
 
 export function onRemoveContact(id) {
 	return {
 		type: REMOVE_CONTACT,
-		payload: id
+		id
 	};
 }
 
