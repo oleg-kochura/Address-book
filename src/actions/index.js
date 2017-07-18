@@ -1,4 +1,4 @@
-import { ADD_CONTACT, EDIT_CONTACT, REMOVE_CONTACT, SET_ACTIVE_FILTER, ADD_GROUP } from '../constants';
+import { ADD_CONTACT, EDIT_CONTACT, REMOVE_CONTACT, SET_ACTIVE_FILTER, SEARCH_CONTACT, ADD_GROUP } from '../constants';
 
 //   ACTION CREATORS
 
@@ -27,6 +27,13 @@ export function setActiveFilter(activeFilter) {
 	return {
 		type: SET_ACTIVE_FILTER,
 		activeFilter
+	};
+}
+
+export function onSearchContact(searchValue) {
+	return {
+		type: SEARCH_CONTACT,
+		searchValue
 	};
 }
 

@@ -4,7 +4,6 @@ import { ListGroup }        from 'react-bootstrap';
 import { ListGroupItem }    from 'react-bootstrap';
 
 const Popup = ({title, show, onHide, fields, onAddField}) => (
-
 	<Modal show={show} onHide={onHide}>
 		<Modal.Header closeButton>
 			<Modal.Title>{title}</Modal.Title>
@@ -18,7 +17,6 @@ const Popup = ({title, show, onHide, fields, onAddField}) => (
 			</ListGroup>
 		</Modal.Body>
 	</Modal>
-
 );
 
 export default Popup;

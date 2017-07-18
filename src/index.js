@@ -7,7 +7,8 @@ import reducer                  from './reducers';
 import App                      from './components/App';
 import AddContact               from './components/Add-contact';
 import ContactsList               from './components/Contacts-list';
-import EditContact              from './components/Edit-contact';
+import Home                     from './components/Home';
+import EditContact              from './containers/Edit-contact';
 import './index.css';
 
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
@@ -16,8 +17,9 @@ ReactDOM.render(
 	<Provider store={store}>
 		<Router history={browserHistory}>
 			<Route path="/" component={App}>
-				<IndexRoute component={ContactsList} />
+				<IndexRoute component={Home} />
 				<Route path="add-contact" component={AddContact}/>
+				<Route path="contacts" component={ContactsList}/>
 				<Route path="edit-contact/:id" component={EditContact}/>
 			</Route>
 		</Router>

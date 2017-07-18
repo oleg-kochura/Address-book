@@ -1,7 +1,7 @@
-import { SET_ACTIVE_FILTER } from '../constants';
+import { SET_ACTIVE_FILTER, SEARCH_CONTACT } from '../constants';
 
 const initialState = {
-	activeFilter: 'General',
+	activeFilter: 'General'
 };
 
 export default function activateFilter(state = initialState, action) {
@@ -10,6 +10,11 @@ export default function activateFilter(state = initialState, action) {
 			return {
 				...state,
 				activeFilter: action.activeFilter
+			};
+		case SEARCH_CONTACT:
+			return {
+				...state,
+				search: action.searchValue
 			};
 		default:
 			return state;

@@ -6,20 +6,13 @@ import { Nav }              from 'react-bootstrap';
 import { NavDropdown }      from 'react-bootstrap';
 
 class GroupsList extends Component {
-
-	filterByGroup(index) {
-		this.props.setActiveFilter(this.props.groups[index]);
-	}
-
 	render() {
-		let menuItems = this.props.groups.map((group, index) => {
-			return  <MenuItem key={index} onClick={() => this.filterByGroup(index)}>{group}</MenuItem>
-		});
-
 		return (
-			<Nav pullRight>
-				<NavDropdown title="Groups" id="groups">
-					{menuItems}
+			<Nav className={this.props.visibility} >
+				<NavDropdown title="Filter by Group" id="groups">
+					{this.props.groups.map(group =>
+						<MenuItem key={group} onClick={() => this.props.setActiveFilter(group)}>{group}</MenuItem>
+					)}
 				</NavDropdown>
 			</Nav>
 		)
@@ -32,4 +25,22 @@ function mapStateToProps(state) {
 	}
 }
 
-export default connect(mapStateToProps, {setActiveFilter})(GroupsList);
+export default connect(mapStateToProps, { setActiveFilter })(GroupsList);
+
+// import React            from 'react';
+// import { MenuItem }     from 'react-bootstrap';
+// import { Nav }          from 'react-bootstrap';
+// import { NavDropdown }  from 'react-bootstrap';
+//
+// const GroupsList = ({groups, onFilterSelect}) => (
+//
+// 	<Nav pullRight>
+// 		<NavDropdown title="Filter by Group" id="groups">
+// 			{groups.map(group =>
+// 					<MenuItem key={group} onClick={() => onFilterSelect(group)}>{group}</MenuItem>
+// 			)}
+// 		</NavDropdown>
+// 	</Nav>
+// );
+//
+// export default GroupsList;

@@ -5,7 +5,8 @@ export const formFields = {
 		type: 'text',
 		value: '',
 		isValid: null,
-		visible: true
+		visible: true,
+		position: 1
 	},
 	lastName: {
 		name: 'lastName',
@@ -13,7 +14,8 @@ export const formFields = {
 		type: 'text',
 		value: '',
 		isValid: null,
-		visible: true
+		visible: true,
+		position: 2
 	},
 	workPhone: {
 		name: 'workPhone',
@@ -21,7 +23,8 @@ export const formFields = {
 		type: 'tel',
 		value: '',
 		isValid: null,
-		visible: true
+		visible: true,
+		position: 3
 	},
 	mobilePhone: {
 		name: 'mobilePhone',

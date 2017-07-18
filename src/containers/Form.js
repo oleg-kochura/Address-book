@@ -7,11 +7,11 @@ import { Button }           from 'react-bootstrap';
 import {
 	validateField,
 	validateForm }          from '../validation/validate';
-import InputsList           from './Inputs-list';
-import SelectGroup          from './Select-group';
-import { formFields }       from './availableFormFields';
-import Popup                from './Popup';
-import { guid }             from '../generateID';
+import InputsList           from '../components/Inputs-list';
+import SelectGroup          from '../components/Select-group';
+import { formFields }       from '../availableFormFields';
+import Popup                from '../components/Popup';
+import { guid }             from '../helpers';
 import clone                from 'clone';
 
 class Form extends Component {
@@ -49,7 +49,6 @@ class Form extends Component {
 	handleChange = (e) => {
 		const name = e.target.name;
 		const value = e.target.value;
-
 		this.setState({
 			fields: {
 				...this.state.fields,
@@ -72,6 +71,7 @@ class Form extends Component {
 			contact[key] = this.state.fields[key].value;
 			contact.id = id;
 		}
+		console.log(contact);
 
 		if (this.state.isEditing) {
 			this.props.onEditContact(contact);
@@ -109,6 +109,7 @@ class Form extends Component {
 	addField = (name) => {
 		let fields = clone(this.state.fields);
 		fields[name].visible = true;
+		fields[name].position = Object.values(fields).filter(field => field.visible).length;
 		this.setState({fields}, () => this.onValidateForm());
 	};
 
@@ -124,15 +125,14 @@ class Form extends Component {
 
 				<Button type="submit"
 						disabled={!this.state.formIsValid}>
-						{
-							this.state.isEditing
+						{this.state.isEditing
 							? 'Save changes'
 							: 'Add contact'
 						}
 				</Button>
 
 				<Button onClick={this.openModal}
-				        className={this.state.isEditing ? 'hide' : null}>Add field</Button>
+				        className={this.state.isEditing && 'hide'}>Add field</Button>
 
 				<Button onClick={this.resetForm}>Reset form</Button>
 

@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 import { connect }          from 'react-redux';
 import ContactItem          from './Contact-Item';
-import { Table }           from 'react-bootstrap';
+import { Table }            from 'react-bootstrap';
+import { sorting }          from '../helpers';
+
 
 class ContactsList extends Component {
 
-	sorting(a, b) {
-		if (a.firstName > b.firstName) return 1;
-		if (a.firstName < b.firstName) return -1;
-	}
-
 	render() {
 		let activeFilter = this.props.activeFilter;
-		let contacts = this.props.contacts.sort(this.sorting);
+		let contacts = this.props.contacts.sort((a, b) => sorting(a.firstName, b.firstName));
 
 		if (activeFilter !== 'General') {
 			contacts = contacts.filter(contact => contact.group === activeFilter);
@@ -35,7 +32,6 @@ class ContactsList extends Component {
 						<ContactItem key={index} index={index} contact={contact}/>
 					)}
 				</tbody>
-
 			</Table>
 		);
 	}

@@ -11,9 +11,10 @@ class EditContact extends Component {
 	render() {
 		return (
 			<div>
-				<Link to={'/'}>&larr; Back</Link>
+				<h2 className="text-center">Edit Contact</h2>
 				<Form editing
 				      contact={this.getContactId()}></Form>
+				<Link to={'/'}>&larr; Back</Link>
 			</div>
 		);
 	}
