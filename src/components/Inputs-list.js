@@ -1,11 +1,15 @@
 import React        from 'react';
 import InputItem    from './Input-item';
-import { sorting }  from '../helpers';
+
+const sorting = (a, b) => {
+	if (a.position > b.position) return 1;
+	if (a.position < b.position) return -1;
+};
 
 const InputsList = ({fields, onChange}) => (
 	<div>
 		{fields
-			.sort((a, b) => sorting(a.position, b.position))
+			.sort(sorting)
 			.map(field =>
 					<InputItem key={field.name}
 					           onChange={onChange}
@@ -17,6 +21,5 @@ const InputsList = ({fields, onChange}) => (
 		}
 	</div>
 );
-
 
 export default InputsList;

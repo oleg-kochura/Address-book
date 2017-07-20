@@ -1,29 +1,27 @@
-import React, { Component } from 'react';
-import { connect }          from 'react-redux';
-import { Link } from 'react-router';
+import React        from 'react';
+import { connect }  from 'react-redux';
+import Form         from './Form';
 
-import Form from './Form';
 
-class EditContact extends Component {
+const EditContact = ({contacts, params: {id} }) => {
 
-	getContactId = () => this.props.contacts.find(contact => contact.id === this.props.params.id);
+	const getContactById = () => contacts.find(contact => contact.id === id);
 
-	render() {
-		return (
-			<div>
-				<h2 className="text-center">Edit Contact</h2>
-				<Form editing
-				      contact={this.getContactId()}></Form>
-				<Link to={'/'}>&larr; Back</Link>
-			</div>
-		);
-	}
-}
+	return (
+		<div>
+			<h2 className="text-center">Edit Contact</h2>
+			<Form editing
+			      contact={getContactById()}></Form>
 
-function mapStateToProps(state) {
+		</div>
+	);
+};
+
+function mapStateToProps({contacts}) {
 	return {
-		contacts: state.contacts
+		contacts
 	}
 }
+
 
 export default connect(mapStateToProps, null)(EditContact);

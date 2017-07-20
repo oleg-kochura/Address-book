@@ -10,8 +10,8 @@ const SelectGroup = ({groups, selected, onSelect}) => (
 		             componentClass="select"
 		             name="group">
 
-			{groups.map((group, index) =>
-				<option key={index} value={group}>{group}</option>
+			{groups.map(group =>
+				<option key={group} value={group}>{group}</option>
 			)}
 		</FormControl>
 	</FormGroup>

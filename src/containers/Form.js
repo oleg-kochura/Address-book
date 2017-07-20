@@ -1,18 +1,25 @@
 import React, { Component } from 'react';
 import { connect }          from 'react-redux';
-import {
-	onAddContact,
-	onEditContact }         from '../actions';
-import { Button }           from 'react-bootstrap';
-import {
-	validateField,
-	validateForm }          from '../validation/validate';
+import { onAddContact }     from '../actions';
+import { onEditContact }    from '../actions';
+import clone                from 'clone';
+import { validateField }    from '../validation/validate';
+import { validateForm }     from '../validation/validate';
+import { formFields }       from '../availableFormFields';
 import InputsList           from '../components/Inputs-list';
 import SelectGroup          from '../components/Select-group';
-import { formFields }       from '../availableFormFields';
 import Popup                from '../components/Popup';
-import { guid }             from '../helpers';
-import clone                from 'clone';
+import { Button }           from 'react-bootstrap';
+
+
+function guid() {
+	const s4 = () =>
+		Math.floor((1 + Math.random()) * 0x10000)
+			.toString(16)
+			.substring(1);
+	return s4() + s4() + s4() + s4() + s4() + s4();
+}
+
 
 class Form extends Component {
 	constructor(props) {
@@ -33,22 +40,21 @@ class Form extends Component {
 			for (let key in fields) {
 				fields[key].value = contact[key];
 				fields[key].visible = true;
-				fields[key].isValid = validateField(key, fields[key].value)
+				fields[key].isValid = validateField(key, fields[key].value);
 			}
+
+			console.log(fields);
 
 			this.setState(
 				{fields, isEditing: true},
 				() => this.onValidateForm()
 			);
-
 		} else {
 			this.setState({fields});
 		}
 	}
 
-	handleChange = (e) => {
-		const name = e.target.name;
-		const value = e.target.value;
+	handleChange = ({ target: { value, name } }) => {
 		this.setState({
 			fields: {
 				...this.state.fields,
@@ -71,7 +77,6 @@ class Form extends Component {
 			contact[key] = this.state.fields[key].value;
 			contact.id = id;
 		}
-		console.log(contact);
 
 		if (this.state.isEditing) {
 			this.props.onEditContact(contact);
@@ -90,7 +95,6 @@ class Form extends Component {
 		this.setState({fields, formIsValid: false});
 	};
 
-
 	openModal = () => this.setState({showModal: true});
 	closeModal= () => this.setState({showModal: false});
 
@@ -98,7 +102,7 @@ class Form extends Component {
 
 	getFieldsToValidate = () => {
 		return Object.values(this.state.fields)
-			.filter(field => field.visible === true);
+			.filter(field => field.visible === true && field.name !== 'group');
 	};
 
 	getFieldsToAdd = () =>  {
@@ -114,13 +118,15 @@ class Form extends Component {
 	};
 
 	render() {
+		const {groups, contact}  = this.props;
+
 		return (
 			<form onSubmit={this.onFormSubmit}>
 				<InputsList fields={this.getFieldsToValidate()}
 				            onChange={this.handleChange}/>
 
-				<SelectGroup groups={this.props.groups}
-				             selected={this.props.contact ? this.props.contact.group : 'General'}
+				<SelectGroup groups={groups}
+				             selected={contact ? contact.group : 'General'}
 				             onSelect={this.handleChange}/>
 
 				<Button type="submit"
@@ -146,9 +152,9 @@ class Form extends Component {
 	}
 }
 
-function mapStateToProps(state) {
+function mapStateToProps({groups}) {
 	return {
-		groups: state.groups
+		groups
 	}
 }
 

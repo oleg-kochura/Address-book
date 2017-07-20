@@ -57,5 +57,13 @@ export const formFields = {
 		value: '',
 		isValid: null,
 		visible: false
+	},
+	group: {
+		name: 'group',
+		label: 'Group:',
+		type: 'Select',
+		value: 'General',
+		isValid: true,
+		visible: true
 	}
 };

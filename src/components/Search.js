@@ -1,28 +1,22 @@
-import React, { Component } from 'react';
+import React                from 'react';
 import { connect }          from 'react-redux';
+import { onSearchContact }  from '../actions';
 import { Navbar }           from 'react-bootstrap';
 import { FormGroup }        from 'react-bootstrap';
 import { FormControl }      from 'react-bootstrap';
-import { Button }           from 'react-bootstrap';
+import { ControlLabel }     from 'react-bootstrap';
 
-class Search extends Component {
-	render() {
-		return (
-			<Navbar.Form className={this.props.visibility} pullRight>
-				<FormGroup>
-					<FormControl type="text" placeholder="Search" />
-				</FormGroup>
-				{/*{' '}*/}
-				{/*<Button type="submit">Submit</Button>*/}
-			</Navbar.Form>
-		)
-	}
-}
 
-function mapStateToProps(state) {
-	return {
-		groups: state.contacts
-	}
-}
+const Search = ({ onSearchContact }) => (
+	<Navbar.Form pullRight>
+		<FormGroup>
+			<ControlLabel className="search-label">Search by name:</ControlLabel>
+			<FormControl type="text"
+			             placeholder="Search"
+			             onChange={(e) => onSearchContact(e.target.value)} />
+		</FormGroup>
+	</Navbar.Form>
+);
 
-export default connect(mapStateToProps, null)(Search);
+
+export default connect(null, { onSearchContact })(Search);

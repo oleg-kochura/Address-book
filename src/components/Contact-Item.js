@@ -1,9 +1,8 @@
 import React from 'react';
-import { onRemoveContact } from '../actions';
-import { connect }          from 'react-redux';
 import { Link } from 'react-router';
+import { Glyphicon } from 'react-bootstrap';
 
-const ContactItem = ({index, contact, onRemoveContact}) => (
+const ContactItem = ({index, contact, onRemove}) => (
 		<tr>
 			<td>{index + 1}</td>
 			<td>{contact.firstName}</td>
@@ -11,16 +10,17 @@ const ContactItem = ({index, contact, onRemoveContact}) => (
 			<td>{contact.email}</td>
 			<td>{contact.workPhone}, {contact.mobilePhone}</td>
 			<td>{contact.country}, {contact.city}</td>
+			<td>{contact.group}</td>
 			<td>
 				<div className="buttons-container">
 					<Link to={`/edit-contact/${contact.id}`}>
-						<span className="glyphicon glyphicon-edit"></span>
+						<Glyphicon glyph="edit" />
 					</Link>
-					<span onClick={() => onRemoveContact(contact.id)}
-					      className="glyphicon glyphicon-remove"></span>
+					<Glyphicon glyph="remove"
+					           onClick={() => onRemove(contact.id)}/>
 				</div>
 			</td>
 		</tr>
 );
 
-export default connect(null, {onRemoveContact})(ContactItem);
+export default ContactItem;

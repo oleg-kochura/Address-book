@@ -10,10 +10,23 @@ body {
   margin: 0 auto;
 }
 
-form {
+form:not(.add-group) {
   width: 500px;
   margin: 0 auto;
   text-align: center;
+}
+
+.add-group {
+  padding: 0 13px;
+  margin-bottom: 10px;
+}
+
+.add-group button {
+  margin: 5px 0 0 0;
+}
+
+.add-group input {
+  margin-top: 10px;
 }
 
 .buttons-container {
@@ -35,4 +48,11 @@ form {
 
 .table  .glyphicon.glyphicon-remove:hover {
   color: #23527c;
+}
+
+.search-label {
+  margin-right: 10px;
+  color: #ffffff;
+  font-family: sans-serif;
+  font-weight: normal;
 }

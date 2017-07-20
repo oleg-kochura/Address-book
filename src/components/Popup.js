@@ -1,5 +1,5 @@
-import React        from 'react';
-import { Modal }    from 'react-bootstrap';
+import React                from 'react';
+import { Modal }            from 'react-bootstrap';
 import { ListGroup }        from 'react-bootstrap';
 import { ListGroupItem }    from 'react-bootstrap';
 
