@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import { connect }          from 'react-redux';
 import { onAddContact }     from '../actions';
 import { onEditContact }    from '../actions';
-import clone                from 'clone';
 import { validateField }    from '../validation/validate';
 import { validateForm }     from '../validation/validate';
-import { formFields }       from '../availableFormFields';
 import InputsList           from '../components/Inputs-list';
 import SelectGroup          from '../components/Select-group';
 import Popup                from '../components/Popup';
@@ -26,24 +24,11 @@ class Form extends Component {
 		super(props);
 		this.state = {
 			formIsValid: false,
-			isEditing: false,
+			isEditing: props.editing || false,
 			showModal: false
 		};
-		this.fields = clone(formFields);
-	}
-
-	componentDidMount() {
-		if (this.props.editing) {
-			let contact = this.props.contact;
-
-			for (let key in this.fields) {
-				this.fields[key].value = contact[key];
-				this.fields[key].visible = true;
-				this.fields[key].isValid = validateField(key, this.fields[key].value);
-			}
-
-			this.setState({isEditing: true}, () => this.onValidateForm());
-		}
+		
+		this.fields = props.fields;
 	}
 
 	handleChange = ({ target: { value, name } }) => {
@@ -56,13 +41,7 @@ class Form extends Component {
 	onFormSubmit = (e) => {
 		e.preventDefault();
 
-		let contact = {};
-		const id = this.state.isEditing ? this.props.contact.id : guid();
-
-		for (let key in this.fields) {
-			contact[key] = this.fields[key].value;
-			contact.id = id;
-		}
+		const contact = this.parseFieldsValuesToContact();
 
 		if (this.state.isEditing) {
 			this.props.onEditContact(contact);
@@ -72,12 +51,23 @@ class Form extends Component {
 		}
 	};
 
+	parseFieldsValuesToContact = () => {
+		let contact = {};
+		for (let key in this.fields) {
+			contact[key] = this.fields[key].value;
+		}
+		contact.id = this.state.isEditing ? this.props.id : guid();
+
+		return contact;
+	};
+
 	resetForm = () => {
 		for (let key in this.fields) {
 			this.fields[key].value = '';
 			this.fields[key].isValid = null;
 		}
-		this.setState({formIsValid: false});
+
+		this.onValidateForm();
 	};
 
 	openModal = () => this.setState({showModal: true});
@@ -102,35 +92,46 @@ class Form extends Component {
 	};
 
 	render() {
-		const {groups, contact}  = this.props;
-
+		const {groups, fields}  = this.props;
 		return (
 			<form onSubmit={this.onFormSubmit}>
 				<InputsList fields={this.getFieldsToValidate()}
 				            onChange={this.handleChange}/>
 
 				<SelectGroup groups={groups}
-				             selected={contact ? contact.group : 'General'}
+				             selected={fields.group.value !== '' ? fields.group.value : 'General'}
 				             onSelect={this.handleChange}/>
 
-				<Button type="submit"
-				        disabled={!this.state.formIsValid}>
-					{this.state.isEditing
-						? 'Save changes'
-						: 'Add contact'
-					}
+
+				{!this.state.isEditing ?
+
+					<div>
+						<Button type="submit"
+						        disabled={!this.state.formIsValid}>
+							Add contact
+						</Button>
+
+						<Button onClick={this.openModal}>
+							Add field
+						</Button>
+
+						<Popup title="Add new field"
+						       show={this.state.showModal}
+						       onHide={this.closeModal}
+						       fields={this.getFieldsToAdd()}
+						       onAddField={this.addField}/>
+					</div>  :
+
+						<Button type="submit"
+								disabled={!this.state.formIsValid}>
+							Save changes
+						</Button>
+				}
+
+				<Button onClick={this.resetForm}>
+					Reset form
 				</Button>
 
-				<Button onClick={this.openModal}
-				        className={this.state.isEditing && 'hide'}>Add field</Button>
-
-				<Button onClick={this.resetForm}>Reset form</Button>
-
-				<Popup title="Add new field"
-				       show={this.state.showModal}
-				       onHide={this.closeModal}
-				       fields={this.getFieldsToAdd()}
-				       onAddField={this.addField}/>
 			</form>
 		);
 	}

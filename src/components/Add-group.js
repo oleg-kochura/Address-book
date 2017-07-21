@@ -39,7 +39,6 @@ class AddGroup extends Component {
 
 				{this.state.expanded &&
 
-
 					<FormGroup bsSize="small">
 						<input type="text"
 						       autoFocus

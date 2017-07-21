@@ -5,7 +5,7 @@ import { FormControl }              from 'react-bootstrap';
 import { getFieldValidationState }  from '../validation/validate';
 
 
-const InputItem = ({onChange, value, name, type, label, valid}) => (
+const Field = ({onChange, value, name, type, label, valid}) => (
 	<FormGroup validationState={getFieldValidationState(valid)}>
 		<ControlLabel>{label}</ControlLabel>
 		<input className="form-control"
@@ -19,6 +19,6 @@ const InputItem = ({onChange, value, name, type, label, valid}) => (
 );
 
 
-export default InputItem;
+export default Field;
 
 

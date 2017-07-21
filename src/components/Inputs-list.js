@@ -1,5 +1,5 @@
 import React        from 'react';
-import InputItem    from './Input-item';
+import Field    from './Field';
 
 const sorting = (a, b) => {
 	if (a.position > b.position) return 1;
@@ -11,12 +11,12 @@ const InputsList = ({fields, onChange}) => (
 		{fields
 			.sort(sorting)
 			.map(field =>
-					<InputItem key={field.name}
-					           onChange={onChange}
-					           value={field.value}
-					           name={field.name}
-					           label={field.label}
-					           valid={field.isValid}/>
+					<Field key={field.name}
+					       onChange={onChange}
+					       value={field.value}
+					       name={field.name}
+					       label={field.label}
+					       valid={field.isValid}/>
 			)
 		}
 	</div>

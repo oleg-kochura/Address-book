@@ -6,7 +6,7 @@ import { FormControl }  from 'react-bootstrap';
 const SelectGroup = ({groups, selected, onSelect}) => (
 	<FormGroup>
 		<ControlLabel>Group:</ControlLabel>
-		<FormControl defaultValue={selected} onChange={onSelect}
+		<FormControl value={selected} onChange={onSelect}
 		             componentClass="select"
 		             name="group">
 
