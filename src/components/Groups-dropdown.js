@@ -11,7 +11,12 @@ class GroupsDropDown extends  Component {
 	state = { isOpen: false };
 
 	render() {
-		const {groups, addNewGroup, activeFilter, setActiveFilter} = this.props;
+
+		const {
+			groups,
+			addNewGroup,
+			activeFilter,
+			setActiveFilter } = this.props;
 
 		return (
 			<Nav>
@@ -44,4 +49,7 @@ function mapStateToProps({groups, common: {activeFilter}}) {
 	}
 }
 
-export default connect(mapStateToProps, { setActiveFilter, addNewGroup })(GroupsDropDown);
+export default connect(mapStateToProps, {
+	setActiveFilter,
+	addNewGroup
+})(GroupsDropDown);

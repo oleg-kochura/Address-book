@@ -20,7 +20,7 @@ class AddGroup extends Component {
 		e.preventDefault();
 		let value = this.textInput.value;
 
-		if (!checkIfGroupExists(this.props.groups,value)){
+		if (!checkIfGroupExists(this.props.groups, value)){
 			this.props.onAddGroup(value);
 			this.textInput.value = '';
 
