@@ -5,6 +5,7 @@ import { onEditContact }        from '../actions';
 import { onUpdateContact }      from '../actions';
 import { validateField }        from '../validation/validate';
 import { validateForm }         from '../validation/validate';
+import { getFieldsToValidate }  from '../validation/validate';
 import FieldsList               from '../components/Fields-list';
 import SelectGroup              from '../components/Select-group';
 import Popup                    from '../components/Popup';
@@ -34,7 +35,6 @@ class Form extends Component {
 
 	handleChange = ({ target: { value, name } }) => {
 		this.fields[name].value = value;
-		console.log(value);
 		this.fields[name].isValid = validateField(name, value);
 		this.onValidateForm();
 	};
@@ -75,16 +75,11 @@ class Form extends Component {
 	openModal = () => this.setState({showModal: true});
 	closeModal= () => this.setState({showModal: false});
 
-	onValidateForm = () => this.setState({formIsValid: validateForm(this.getFieldsToValidate())});
-
-	getFieldsToValidate = () => {
-		return Object.values(this.fields)
-			.filter(field => field.visible === true && field.name !== 'group');
-	};
+	onValidateForm = () => this.setState({formIsValid: validateForm(getFieldsToValidate(this.fields))});
 
 	getFieldsToAdd = () =>  {
 		return Object.values(this.fields)
-			.filter(field => field.visible === false);
+			.filter(field => !field.visible);
 	};
 
 	addField = (name) => {
@@ -97,7 +92,7 @@ class Form extends Component {
 		const {groups, fields}  = this.props;
 		return (
 			<form onSubmit={this.onFormSubmit}>
-				<FieldsList fields={this.getFieldsToValidate()}
+				<FieldsList fields={getFieldsToValidate(this.fields)}
 				            onChange={this.handleChange}/>
 
 				<SelectGroup groups={groups}

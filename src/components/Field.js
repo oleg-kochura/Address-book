@@ -17,7 +17,7 @@ const Field = ({onChange, value, name, type, label, valid}) => (
 		           type={type}
 		           name={name}
 		           value={value}
-		           mask={type === 'tel' ? '(\999) 999-9999' : null}
+		           mask={type === 'tel' ? '(999) 999-9999' : null}
 		           maskChar="x"
 		           placeholder={label}/>
 

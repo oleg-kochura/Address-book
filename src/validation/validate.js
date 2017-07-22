@@ -9,7 +9,7 @@ export function validateField(fieldName, value) {
 			return value ? Boolean(value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) : null;
 		case 'workPhone':
 		case 'mobilePhone':
-			return value ? Boolean(value.match(/^\d{10}$/)) : null;
+			return value ? Boolean(value.match(/^[(]\d{3}[)]\s\d{3}-\d{4}/)) : null;
 		case 'group':
 			return true;
 		default:
@@ -28,6 +28,11 @@ export function getFieldValidationState(isValid) {
 	}
 }
 
-export function validateForm(formFields) {
-	return formFields.every(key => key.isValid === true || key.isValid === null);
+export function getFieldsToValidate(fields) {
+	return Object.values(fields)
+		.filter(field => field.visible === true && field.name !== 'group');
+}
+
+export function validateForm(fields) {
+	return fields.every(key => key.isValid === true || key.isValid === null);
 }
