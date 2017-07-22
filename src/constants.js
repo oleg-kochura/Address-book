@@ -1,5 +1,6 @@
 export const ADD_CONTACT = 'ADD_CONTACT';
 export const EDIT_CONTACT = 'EDIT_CONTACT';
+export const UPDATE_CONTACT = 'UPDATE_CONTACT';
 export const REMOVE_CONTACT = 'REMOVE_CONTACT';
 export const SET_ACTIVE_FILTER = 'FILTER_BY_GROUP';
 export const SEARCH_CONTACT = 'SEARCH_CONTACT';

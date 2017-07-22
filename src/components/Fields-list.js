@@ -1,12 +1,12 @@
-import React        from 'react';
+import React    from 'react';
 import Field    from './Field';
 
-const sorting = (a, b) => {
+function sorting(a, b) {
 	if (a.position > b.position) return 1;
 	if (a.position < b.position) return -1;
-};
+}
 
-const InputsList = ({fields, onChange}) => (
+const FieldsList = ({fields, onChange}) => (
 	<div>
 		{fields
 			.sort(sorting)
@@ -15,6 +15,7 @@ const InputsList = ({fields, onChange}) => (
 					       onChange={onChange}
 					       value={field.value}
 					       name={field.name}
+					       type={field.type}
 					       label={field.label}
 					       valid={field.isValid}/>
 			)
@@ -22,4 +23,4 @@ const InputsList = ({fields, onChange}) => (
 	</div>
 );
 
-export default InputsList;
+export default FieldsList;

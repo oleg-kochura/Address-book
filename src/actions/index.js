@@ -1,4 +1,11 @@
-import { ADD_CONTACT, EDIT_CONTACT, REMOVE_CONTACT, SET_ACTIVE_FILTER, SEARCH_CONTACT, ADD_GROUP } from '../constants';
+import {
+	ADD_CONTACT,
+	EDIT_CONTACT,
+	REMOVE_CONTACT,
+	UPDATE_CONTACT,
+	SET_ACTIVE_FILTER,
+	SEARCH_CONTACT,
+	ADD_GROUP           } from '../constants';
 
 //   ACTION CREATORS
 
@@ -12,6 +19,13 @@ export function onAddContact(contact) {
 export function onEditContact(contact) {
 	return {
 		type: EDIT_CONTACT,
+		contact
+	};
+}
+
+export function onUpdateContact(contact) {
+	return {
+		type: UPDATE_CONTACT,
 		contact
 	};
 }

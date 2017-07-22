@@ -1,12 +1,12 @@
 import React                from 'react';
 import { connect }          from 'react-redux';
 import { onRemoveContact }  from '../actions';
-import ContactItem          from './Contact-Item';
-import { Table }            from 'react-bootstrap';
+import { onEditContact }    from '../actions';
+import Row          from './Row';
 
-const ContactsTable = ({contacts, onRemoveContact}) => {
+const Table = ({contacts, isEditingContact, onRemoveContact, onEditContact}) => {
 	return (
-		<Table bsClass="table table-striped table-hover">
+		<table className="table table-striped table-hover">
 			<thead>
 			<tr>
 				<th>#</th>
@@ -20,18 +20,19 @@ const ContactsTable = ({contacts, onRemoveContact}) => {
 			</thead>
 			<tbody>
 				{contacts.map((contact, index) =>
-					<ContactItem key={index}
-					             onRemove={onRemoveContact}
-					             index={index}
-					             contact={contact}/>
+					<Row key={index}
+					     onEdit={onEditContact}
+					     onRemove={onRemoveContact}
+					     index={index}
+					     contact={contact} isEditingContact={isEditingContact}/>
 				)}
 			</tbody>
-		</Table>
+		</table>
 	);
 };
 
 
-function mapStateToProps({contacts, common: {activeFilter, search}}) {
+function mapStateToProps({contacts : {items, isEditing}, common: {activeFilter, search}}) {
 
 	function filterBySearch(contact) {
 		return `${contact.firstName} ${contact.lastName}`
@@ -57,25 +58,29 @@ function mapStateToProps({contacts, common: {activeFilter, search}}) {
 
 	switch (true) {
 		case search && activeFilter === 'General':
-			filteredContacts = contacts.filter(filterBySearch).sort(sortByName);
+			filteredContacts = items.filter(filterBySearch).sort(sortByName);
 			break;
 		case search && activeFilter !== 'General':
-			filteredContacts = contacts.filter(filterByGroupAndSearch).sort(sortByName);
+			filteredContacts = items.filter(filterByGroupAndSearch).sort(sortByName);
 			break;
 		case activeFilter === 'General':
-			filteredContacts = contacts.sort(sortByName);
+			filteredContacts = items.sort(sortByName);
 			break;
 		case activeFilter !== 'General':
-			filteredContacts = contacts.filter(filterByGroup).sort(sortByName);
+			filteredContacts = items.filter(filterByGroup).sort(sortByName);
 			break;
 		default:
-			filteredContacts = contacts;
+			filteredContacts = items;
 	}
 
 	return {
-		contacts: filteredContacts
+		contacts: filteredContacts,
+		isEditingContact: isEditing
 	};
 }
 
 
-export default connect(mapStateToProps, { onRemoveContact })(ContactsTable);
+export default connect(mapStateToProps, {
+	onRemoveContact,
+	onEditContact
+})(Table);

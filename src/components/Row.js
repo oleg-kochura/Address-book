@@ -2,8 +2,15 @@ import React from 'react';
 import { Link } from 'react-router';
 import { Glyphicon } from 'react-bootstrap';
 
-const ContactItem = ({index, contact, onRemove}) => (
-		<tr>
+
+const Row = ({index, contact, onEdit, onRemove, isEditingContact}) => {
+
+	function setActiveRow() {
+		return contact.id === isEditingContact.id ?  'last-modified' : null;
+	}
+
+	return (
+		<tr className={isEditingContact && setActiveRow()}>
 			<td>{index + 1}</td>
 			<td>{contact.firstName}</td>
 			<td>{contact.lastName}</td>
@@ -14,13 +21,14 @@ const ContactItem = ({index, contact, onRemove}) => (
 			<td>
 				<div className="buttons-container">
 					<Link to={`/edit-contact/${contact.id}`}>
-						<Glyphicon glyph="edit" />
+						<Glyphicon glyph="edit" onClick={() => onEdit(contact)}/>
 					</Link>
 					<Glyphicon glyph="remove"
 					           onClick={() => onRemove(contact.id)}/>
 				</div>
 			</td>
 		</tr>
-);
+	)
+};
 
-export default ContactItem;
+export default Row;

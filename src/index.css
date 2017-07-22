@@ -50,6 +50,11 @@ form:not(.add-group) {
   color: #23527c;
 }
 
+.table.table-striped tr.last-modified {
+  background-color: #2c3e50;
+  color: white;
+}
+
 .search-label {
   margin-right: 10px;
   color: #ffffff;

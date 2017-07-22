@@ -1,20 +1,23 @@
 import React                from 'react';
 import { connect }          from 'react-redux';
+import { onEditContact }    from '../actions';
 import clone                from 'clone';
 import Form                 from './Form';
 import { formFields }       from '../availableFormFields';
 import { validateField }    from '../validation/validate';
 
 
-const EditContact = ({contacts, params: {id} }) => {
+const EditContact = ({contacts, isEditing, params, onEditContact}) => {
 
-	function findContactById() {
-		return contacts.find(contact => contact.id === id)
+	const contact = getContact();
+	onEditContact(contact);
+
+	function getContact() {
+		return isEditing || contacts.find(contact => contact.id === params.id)
 	}
 
 	function parseContactToFieldsValues() {
 		let fields = clone(formFields);
-		const contact = findContactById();
 
 		for (let key in fields) {
 			fields[key].value = contact[key];
@@ -28,18 +31,19 @@ const EditContact = ({contacts, params: {id} }) => {
 		<div>
 			<h2 className="text-center">Edit Contact</h2>
 			<Form editing
-			      id={id}
+			      id={contact.id}
 			      fields={parseContactToFieldsValues()}>
 			</Form>
 		</div>
-	);
+	)
 };
 
-function mapStateToProps({contacts}) {
+function mapStateToProps({contacts: {items, isEditing}}) {
 	return {
-		contacts
+		contacts: items,
+		isEditing
 	}
 }
 
 
-export default connect(mapStateToProps, null)(EditContact);
+export default connect(mapStateToProps, {onEditContact})(EditContact);
