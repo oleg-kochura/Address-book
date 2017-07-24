@@ -11,12 +11,12 @@ class GroupsDropDown extends  Component {
 	state = { isOpen: false };
 
 	render() {
-
 		const {
 			groups,
 			addNewGroup,
 			activeFilter,
-			setActiveFilter } = this.props;
+			setActiveFilter
+		} = this.props;
 
 		return (
 			<Nav>

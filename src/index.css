@@ -40,14 +40,7 @@ form:not(.add-group) {
 
 .glyphicon {
   cursor: pointer;
-}
-
-.table .glyphicon.glyphicon-remove {
-  color: #337ab7;
-}
-
-.table  .glyphicon.glyphicon-remove:hover {
-  color: #23527c;
+  color: #18bc9c;
 }
 
 .table.table-striped tr.last-modified {

@@ -2,7 +2,7 @@ import React                from 'react';
 import { connect }          from 'react-redux';
 import { onRemoveContact }  from '../actions';
 import { onEditContact }    from '../actions';
-import Row          from './Row';
+import Row                  from './Row';
 
 const Table = ({contacts, isEditingContact, onRemoveContact, onEditContact}) => {
 	return (

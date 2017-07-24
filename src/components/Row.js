@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router';
-import { Glyphicon } from 'react-bootstrap';
+import React            from 'react';
+import { Link }         from 'react-router';
+import { Glyphicon }    from 'react-bootstrap';
 
 
 const Row = ({index, contact, onEdit, onRemove, isEditingContact}) => {
@@ -21,7 +21,8 @@ const Row = ({index, contact, onEdit, onRemove, isEditingContact}) => {
 			<td>
 				<div className="buttons-container">
 					<Link to={`/edit-contact/${contact.id}`}>
-						<Glyphicon glyph="edit" onClick={() => onEdit(contact)}/>
+						<Glyphicon glyph="edit"
+						           onClick={() => onEdit(contact)}/>
 					</Link>
 					<Glyphicon glyph="remove"
 					           onClick={() => onRemove(contact.id)}/>
