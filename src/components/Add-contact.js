@@ -1,22 +1,19 @@
 import React                    from 'react';
 import { connect }              from 'react-redux';
-import Popup                    from '../components/Popup';
+import PopupContainer           from '../../containers/PopupContainer';
+import FormContainer            from '../FormContainer';
 import {
 	onAddContact,
 	onEditContact,
 	onFormReset,
 	onToggleModal,
 	onFieldChangeAndValidateForm
-}                               from '../actions';
+}                               from '../../actions';
 import {
 	validateField,
 	validateForm,
 	getFieldsToValidate
-}                               from '../validation/validate';
-import FieldsList               from '../components/Fields-list';
-import SelectGroup              from '../components/Select-group';
-import { Button }               from 'react-bootstrap';
-
+}                               from '../../validation/validate';
 
 function guid() {
 	const s4 = () =>
@@ -25,7 +22,6 @@ function guid() {
 			.substring(1);
 	return s4() + s4() + s4() + s4() + s4() + s4();
 }
-
 
 const AddContact = (props) => {
 
@@ -56,36 +52,16 @@ const AddContact = (props) => {
 		<div>
 			<h2 className="text-center">Add new contact</h2>
 
-			<form onSubmit={onFormSubmit}>
-				<FieldsList fields={getFieldsToValidate(props.fields)}
-				            onChange={handleChange}/>
+			<FormContainer handleChange={handleChange}
+			               onFormSubmit={onFormSubmit}/>
 
-				<SelectGroup groups={props.groups}
-				             selected={props.fields.group.value !== '' ? props.fields.group.value : 'General'}
-				             onSelect={handleChange}/>
-
-				<Button type="submit"
-				        disabled={!props.form.formIsValid}>
-					Save contact
-				</Button>
-
-				<Button onClick={props.onFormReset}>
-					Reset form
-				</Button>
-				<Button onClick={props.onToggleModal}>
-					Add field
-				</Button>
-			</form>
-
-			<Popup title="Add new field"/>
+			<PopupContainer title="Add new field"/>
 		</div>
 	)
 };
 
-function mapStateToProps({form, fields, groups}) {
+function mapStateToProps({fields}) {
 	return {
-		form,
-		groups,
 		fields
 	}
 }
