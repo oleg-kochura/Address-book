@@ -1,19 +1,19 @@
 import React                    from 'react';
 import { connect }              from 'react-redux';
-import PopupContainer           from '../../containers/PopupContainer';
-import FormContainer            from '../FormContainer';
+import PopupContainer           from '../containers/PopupContainer';
+import FormContainer            from './FormContainer';
 import {
 	onAddContact,
 	onEditContact,
 	onFormReset,
 	onToggleModal,
 	onFieldChangeAndValidateForm
-}                               from '../../actions';
+}                               from '../actions';
 import {
 	validateField,
 	validateForm,
 	getFieldsToValidate
-}                               from '../../validation/validate';
+}                               from '../validation/validate';
 
 function guid() {
 	const s4 = () =>

@@ -1,10 +1,10 @@
-import React                from 'react';
-import { connect }          from 'react-redux';
-import { onSearchContact }  from '../actions';
-import { Navbar }           from 'react-bootstrap';
-import { FormGroup }        from 'react-bootstrap';
-import { FormControl }      from 'react-bootstrap';
-import { ControlLabel }     from 'react-bootstrap';
+import React      from 'react';
+import { Navbar } from 'react-bootstrap';
+import {
+	FormGroup,
+	FormControl,
+	ControlLabel
+}                 from 'react-bootstrap';
 
 
 const Search = ({ onSearchContact }) => (
@@ -19,4 +19,4 @@ const Search = ({ onSearchContact }) => (
 );
 
 
-export default connect(null, { onSearchContact })(Search);
+export default Search;

@@ -1,55 +1,63 @@
 import React, { Component } from 'react';
-import { connect }          from 'react-redux';
-import { setActiveFilter }  from '../actions';
-import { addNewGroup }      from '../actions';
 import { MenuItem }         from 'react-bootstrap';
 import { Nav }              from 'react-bootstrap';
 import { NavDropdown }      from 'react-bootstrap';
 import AddGroup             from './Add-group';
+import GroupsList           from './GroupsList';
+
 
 class GroupsDropDown extends  Component {
-	state = { isOpen: false };
+	state = {
+		isOpen: false,
+		addGroupMode: false,
+		inputValue: ''
+	};
+
+	enableAddingMode = () => this.setState({addGroupMode: true});
+	handleInputChange = value => this.setState({inputValue: value});
+	toggleDropDown = isOpen => this.setState({isOpen, addGroupMode: false, inputValue: 'New group'});
+
+	submitForm = (e) => {
+		e.preventDefault();
+
+		if (!this.checkIfGroupExists()) {
+			this.props.addNewGroup(this.state.inputValue);
+			this.setState({inputValue: ''})
+
+		} else {
+			alert('Group already exists. Please enter another group');
+		}
+	};
+
+	checkIfGroupExists = () => {
+		return this.props.groups.some(group => {
+			return group.toLowerCase() === this.state.inputValue.toLowerCase();
+		});
+	};
 
 	render() {
-		const {
-			groups,
-			addNewGroup,
-			activeFilter,
-			setActiveFilter
-		} = this.props;
-
+		const { groups, activeFilter, setActiveFilter } = this.props;
 		return (
 			<Nav>
-				<NavDropdown title="Filter by Group" id="groups"
-				             onToggle={(isOpen) => this.setState({isOpen})}>
+				<NavDropdown id="groups"
+				             title="Filter by Group"
+				             onToggle={this.toggleDropDown}>
 
-					<AddGroup onAddGroup={addNewGroup}
-					          groups={groups}
-					          isOpen={this.state.isOpen}/>
+					<AddGroup addGroupMode={this.state.addGroupMode}
+					          enableAdding={this.enableAddingMode}
+					          onInputChange={this.handleInputChange}
+					          onFormSubmit={this.submitForm}
+					          inputValue={this.state.inputValue}/>
 
 					<MenuItem divider/>
 
-					{groups.map((group, index) =>
-						<MenuItem key={index}
-						          onClick={() => setActiveFilter(group)}
-						          className={group === activeFilter && 'active'}>
-
-							{group}
-						</MenuItem>
-					)}
+					<GroupsList groups={groups}
+					            onSetFilter={setActiveFilter}
+					            filter={activeFilter}/>
 				</NavDropdown>
 			</Nav>
 		)
 	}
 }
-function mapStateToProps({groups, common: {activeFilter}}) {
-	return {
-		groups,
-		activeFilter
-	}
-}
 
-export default connect(mapStateToProps, {
-	setActiveFilter,
-	addNewGroup
-})(GroupsDropDown);
+export default GroupsDropDown;

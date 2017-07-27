@@ -1,7 +1,7 @@
-import React        from 'react';
-import Navigation   from '../containers/Navigation';
-import GroupsList   from './Groups-dropdown';
-import Search       from '../components/Search';
+import React            from 'react';
+import Navigation       from '../containers/Navigation';
+import DropDownContainer   from '../containers/DropDownContainer';
+import SearchContainer  from '../containers/SearchContainer';
 
 
 const App = (props) => (
@@ -10,8 +10,8 @@ const App = (props) => (
 			{
 				props.location.pathname === '/contacts' &&
 					<div>
-						<Search/>
-						<GroupsList/>
+						<SearchContainer/>
+						<DropDownContainer/>
 					</div>
 			}
 		</Navigation>

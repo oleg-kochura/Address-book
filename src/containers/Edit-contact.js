@@ -10,9 +10,7 @@ import {
 	validateForm,
 	getFieldsToValidate
 }                               from '../validation/validate';
-import FieldsList               from '../components/Fields-list';
-import {Button}               from 'react-bootstrap';
-import SelectGroup              from '../components/Select-group';
+import FormContainer            from '../components/FormContainer';
 
 
 const EditContact = (props) => {
@@ -41,33 +39,15 @@ const EditContact = (props) => {
 	return (
 		<div>
 			<h2 className="text-center">Edit Contact</h2>
-
-			<form onSubmit={onFormSubmit}>
-				<FieldsList fields={getFieldsToValidate(props.fields)}
-				            onChange={handleChange}/>
-
-				<SelectGroup groups={props.groups}
-				             selected={props.fields.group.value !== '' ? props.fields.group.value : 'General'}
-				             onSelect={handleChange}/>
-
-				<Button type="submit"
-				        disabled={!props.form.formIsValid}>
-					Save changes
-				</Button>
-
-				<Button onClick={props.onFormReset}>
-					Reset form
-				</Button>
-			</form>
+			<FormContainer handleChange={handleChange}
+			               onFormSubmit={onFormSubmit}/>
 		</div>
 	)
 };
 
-function mapStateToProps({fields, form, groups}) {
+function mapStateToProps({fields}) {
 	return {
-		fields,
-		groups,
-		form
+		fields
 	}
 }
 
