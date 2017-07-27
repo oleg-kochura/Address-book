@@ -1,12 +1,18 @@
-import React            from 'react';
-import { Link }         from 'react-router';
-import { Glyphicon }    from 'react-bootstrap';
+import React              from 'react';
+import { Link }           from 'react-router';
+import { Glyphicon }      from 'react-bootstrap';
+import { validateField }  from '../validation/validate';
 
 
-const Row = ({index, contact, onEdit, onRemove, isEditingContact}) => {
+const Row = ({index, contact, onEdit, onRemove, isEditingContact, setEditingMod}) => {
 
 	function setActiveRow() {
-		return contact.id === isEditingContact.id ?  'last-modified' : null;
+		return contact.id === isEditingContact.id ? 'last-modified' : null;
+	}
+
+	function onRoute(contact) {
+		onEdit(contact);
+		setEditingMod(contact, validateField);
 	}
 
 	return (
@@ -22,7 +28,7 @@ const Row = ({index, contact, onEdit, onRemove, isEditingContact}) => {
 				<div className="buttons-container">
 					<Link to={`/edit-contact/${contact.id}`}>
 						<Glyphicon glyph="edit"
-						           onClick={() => onEdit(contact)}/>
+						           onClick={() => onRoute(contact)}/>
 					</Link>
 					<Glyphicon glyph="remove"
 					           onClick={() => onRemove(contact.id)}/>

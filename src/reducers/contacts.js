@@ -25,8 +25,8 @@ export default function contacts(state = initialState, action) {
 				isEditing: action.contact
 			};
 		case UPDATE_CONTACT:
+			browserHistory.push('/contacts');
 			const newState = state.items.filter(contact => contact.id !== action.contact.id);
-			browserHistory.push('contacts');
 
 			return {
 				...state,

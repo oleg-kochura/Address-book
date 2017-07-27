@@ -1,7 +1,12 @@
-import { SET_ACTIVE_FILTER, SEARCH_CONTACT } from '../constants';
+import {
+	SET_ACTIVE_FILTER,
+	SEARCH_CONTACT,
+	TOGGLE_MODAL_VIEW
+} from '../constants';
 
 const initialState = {
-	activeFilter: 'General'
+	activeFilter: 'General',
+	showModal: false
 };
 
 export default function activateFilter(state = initialState, action) {
@@ -15,6 +20,11 @@ export default function activateFilter(state = initialState, action) {
 			return {
 				...state,
 				search: action.searchValue
+			};
+		case TOGGLE_MODAL_VIEW:
+			return {
+				...state,
+				showModal: !state.showModal
 			};
 		default:
 			return state;

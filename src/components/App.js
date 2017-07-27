@@ -16,6 +16,7 @@ const App = (props) => (
 			}
 		</Navigation>
 
+
 		{props.children}
 	</div>
 );

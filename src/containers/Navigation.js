@@ -3,8 +3,11 @@ import { Nav }              from 'react-bootstrap';
 import { NavItem }          from 'react-bootstrap';
 import { Navbar }           from 'react-bootstrap';
 import { LinkContainer }    from 'react-router-bootstrap';
+import { connect }          from 'react-redux';
+import { onFormAdding }     from '../actions';
 
-const Navigation = ({children}) => (
+
+const Navigation = ({children, onFormAdding}) => (
 	<div>
 		<Navbar>
 
@@ -18,7 +21,7 @@ const Navigation = ({children}) => (
 			</Navbar.Header>
 			<Nav>
 
-				<LinkContainer to="/add-contact" >
+				<LinkContainer to="/add-contact" onClick={() => onFormAdding()}>
 					<NavItem>Add Contact</NavItem>
 				</LinkContainer>
 				<LinkContainer to="/contacts" >
@@ -33,4 +36,5 @@ const Navigation = ({children}) => (
 	</div>
 );
 
-export default Navigation;
+
+export default connect(null, { onFormAdding })(Navigation);

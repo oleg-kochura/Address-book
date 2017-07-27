@@ -1,7 +1,9 @@
 import React            from 'react';
-import { FormGroup }    from 'react-bootstrap';
-import { ControlLabel } from 'react-bootstrap';
-import { FormControl }  from 'react-bootstrap';
+import {
+	FormGroup,
+	ControlLabel,
+	FormControl
+}                       from 'react-bootstrap';
 
 const SelectGroup = ({groups, selected, onSelect}) => (
 	<FormGroup>

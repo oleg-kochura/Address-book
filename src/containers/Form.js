@@ -85,7 +85,7 @@ class Form extends Component {
 	addField = (name) => {
 		this.fields[name].visible = true;
 		this.fields[name].position = Object.values(this.fields).filter(field => field.visible).length;
-		this.onValidateForm();
+		// this.onValidateForm();
 	};
 
 	render() {
