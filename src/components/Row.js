@@ -27,11 +27,9 @@ const Row = ({index, contact, onEdit, onRemove, isEditingContact, setEditingMod}
 			<td>
 				<div className="buttons-container">
 					<Link to={`/edit-contact/${contact.id}`}>
-						<Glyphicon glyph="edit"
-						           onClick={() => onRoute(contact)}/>
+						<Glyphicon glyph="edit" onClick={() => onRoute(contact)}/>
 					</Link>
-					<Glyphicon glyph="remove"
-					           onClick={() => onRemove(contact.id)}/>
+					<Glyphicon glyph="remove" onClick={() => onRemove(contact.id)}/>
 				</div>
 			</td>
 		</tr>

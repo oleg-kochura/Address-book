@@ -37,17 +37,19 @@ class GroupsDropDown extends  Component {
 
 	render() {
 		const { groups, activeFilter, setActiveFilter } = this.props;
+		const { addGroupMode, inputValue} = this.state;
+
 		return (
 			<Nav>
 				<NavDropdown id="groups"
 				             title="Filter by Group"
 				             onToggle={this.toggleDropDown}>
 
-					<AddGroup addGroupMode={this.state.addGroupMode}
+					<AddGroup addGroupMode={addGroupMode}
+					          inputValue={inputValue}
 					          enableAdding={this.enableAddingMode}
 					          onInputChange={this.handleInputChange}
-					          onFormSubmit={this.submitForm}
-					          inputValue={this.state.inputValue}/>
+					          onFormSubmit={this.submitForm}/>
 
 					<MenuItem divider/>
 

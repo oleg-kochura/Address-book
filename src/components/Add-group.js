@@ -1,6 +1,6 @@
-import React  from 'react';
-import { Button }           from 'react-bootstrap';
-import { FormGroup }           from 'react-bootstrap';
+import React          from 'react';
+import { Button }     from 'react-bootstrap';
+import { FormGroup }  from 'react-bootstrap';
 
 const AddGroup = ({addGroupMode, enableAdding, onInputChange, onFormSubmit, inputValue}) => (
 

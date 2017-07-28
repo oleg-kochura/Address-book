@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
 
 const EditContactFormButtons = ({formIsValid, onFormReset}) => (
 	<div>
-		<Button type="submit" disabled={formIsValid}>Save changes</Button>
+		<Button type="submit" disabled={!formIsValid}>Save changes</Button>
 		<Button onClick={onFormReset}>Reset form</Button>
 	</div>
 );

@@ -1,4 +1,4 @@
-import { formFields } from '../availableFormFields.js';
+import { formFields } from '../formModel.js';
 import {
 	ADD_FIELD,
 	UPDATE_FIELD,

@@ -1,14 +1,13 @@
 import React                  from 'react';
 import { connect }            from 'react-redux';
-import {
-	onFormReset,
-	onToggleModal
-}                             from '../actions';
+import { onFormReset }        from '../actions';
+import { onToggleModal }      from '../actions';
 import AddContactFormButtons  from '../components/AddContactFormButtons';
 import EditContactFormButtons from '../components/EditContactFormButtons';
 
 
 const FormButtonsContainer = ({form, onFormReset, onToggleModal}) => (
+
 	form.isEditing
 
 		? <EditContactFormButtons formIsValid={form.formIsValid}
@@ -17,6 +16,7 @@ const FormButtonsContainer = ({form, onFormReset, onToggleModal}) => (
 		: <AddContactFormButtons formIsValid={form.formIsValid}
 		                         onFormReset={onFormReset}
 		                         onToggleModal={onToggleModal}/>
+
 );
 
 function mapStateToProps({form}) {

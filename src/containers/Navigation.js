@@ -1,39 +1,35 @@
 import React                from 'react';
+import { connect }          from 'react-redux';
+import { onFormAdding }     from '../actions';
 import { Nav }              from 'react-bootstrap';
 import { NavItem }          from 'react-bootstrap';
 import { Navbar }           from 'react-bootstrap';
 import { LinkContainer }    from 'react-router-bootstrap';
-import { connect }          from 'react-redux';
-import { onFormAdding }     from '../actions';
 
 
 const Navigation = ({children, onFormAdding}) => (
-	<div>
-		<Navbar>
+	<Navbar>
 
-			<Navbar.Header>
-				<LinkContainer to="/" >
-					<NavItem>
-						<Navbar.Brand>Address book</Navbar.Brand>
-					</NavItem>
-				</LinkContainer>
+		<Navbar.Header>
+			<LinkContainer to="/" >
+				<NavItem>
+					<Navbar.Brand>Address book</Navbar.Brand>
+				</NavItem>
+			</LinkContainer>
+		</Navbar.Header>
 
-			</Navbar.Header>
-			<Nav>
+		<Nav>
+			<LinkContainer to="/add-contact" onClick={() => onFormAdding()}>
+				<NavItem>Add Contact</NavItem>
+			</LinkContainer>
+			<LinkContainer to="/contacts" >
+				<NavItem>Contacts</NavItem>
+			</LinkContainer>
+		</Nav>
 
-				<LinkContainer to="/add-contact" onClick={() => onFormAdding()}>
-					<NavItem>Add Contact</NavItem>
-				</LinkContainer>
-				<LinkContainer to="/contacts" >
-					<NavItem>Contacts</NavItem>
-				</LinkContainer>
+		{children}
 
-			</Nav>
-
-			{children}
-
-		</Navbar>
-	</div>
+	</Navbar>
 );
 
 
