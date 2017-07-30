@@ -14,6 +14,7 @@ import {
 	SET_ADDING_MODE,
 	SET_EDITING_MODE
 } from '../constants';
+import { browserHistory } from 'react-router';
 
 //   ACTION CREATOR
 export function onAddContact(contact) {
@@ -31,6 +32,7 @@ export function onEditContact(contact) {
 }
 
 export function onUpdateContact(contact) {
+	browserHistory.push('/contacts');
 	return {
 		type: UPDATE_CONTACT,
 		contact

@@ -1,12 +1,9 @@
 import { connect }          from 'react-redux';
 import { onRemoveContact }  from '../actions';
-import { onEditContact }    from '../actions';
-import { onFormEditing }    from '../actions';
 import Table                from '../components/Table';
 
 
 const getVisibleContacts = (contacts, activeFilter, search) => {
-
 	const sortByName = (a, b) => {
 		if (a.firstName > b.firstName) return 1;
 		if (a.firstName < b.firstName) return -1;
@@ -40,18 +37,13 @@ const getVisibleContacts = (contacts, activeFilter, search) => {
 };
 
 
-
 const mapStateToProps = ({contacts : {items, isEditing}, common: {activeFilter, search}}) => {
 	return {
-		contacts: getVisibleContacts(items, activeFilter, search),
+		contacts: getVisibleContacts([...items], activeFilter, search),
 		isEditingContact: isEditing
 	};
 };
 
-const TableContainer = connect(mapStateToProps, {
-	onRemoveContact,
-	onEditContact,
-	onFormEditing
-})(Table);
+const TableContainer = connect(mapStateToProps, {onRemoveContact})(Table);
 
 export default TableContainer;

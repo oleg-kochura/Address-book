@@ -1,7 +1,7 @@
 import React                from 'react';
 import Row                  from './Row';
 
-const Table = ({contacts, isEditingContact, onRemoveContact, onEditContact, onFormEditing}) => {
+const Table = ({contacts, isEditingContact, onRemoveContact}) => {
 	return (
 		<table className="table table-striped table-hover">
 			<thead>
@@ -18,8 +18,6 @@ const Table = ({contacts, isEditingContact, onRemoveContact, onEditContact, onFo
 			<tbody>
 				{contacts.map((contact, index) =>
 					<Row key={index}
-					     onEdit={onEditContact}
-					     setEditingMod={onFormEditing}
 					     onRemove={onRemoveContact}
 					     index={index}
 					     contact={contact}
