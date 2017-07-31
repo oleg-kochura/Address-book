@@ -2,7 +2,6 @@ import React, { Component }     from 'react';
 import { connect }              from 'react-redux';
 import {
 	onAddContact,
-	onEditContact,
 	onUpdateContact,
 	onFormReset,
 	onFieldChangeAndValidateForm
@@ -15,6 +14,7 @@ import {
 import FieldsContainer          from './FieldsContainer';
 import SelectGroupContainer     from './SelectGroupContainer';
 import FormButtonsContainer     from './FormButtonsContainer';
+
 
 const guid = () => {
 	const s4 = () =>
@@ -43,7 +43,6 @@ class FormContainer extends Component {
 		if (!this.props.isEditing) {
 			contact.id = guid();
 			this.props.onAddContact(contact);
-			this.props.onEditContact(contact);
 			this.props.onFormReset();
 
 		} else if (this.props.contactId && this.props.isEditing){
@@ -72,7 +71,6 @@ function mapStateToProps({form: {isEditing}, fields}) {
 
 export default connect(mapStateToProps, {
 	onAddContact,
-	onEditContact,
 	onFormReset,
 	onUpdateContact,
 	onFieldChangeAndValidateForm

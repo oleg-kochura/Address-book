@@ -1,9 +1,10 @@
 import { data } from '../data';
 import {
 	ADD_CONTACT,
-	EDIT_CONTACT,
 	REMOVE_CONTACT,
-	UPDATE_CONTACT } from '../constants';
+	UPDATE_CONTACT,
+	SET_EDITING_MODE
+} from '../constants';
 
 const initialState = {
 	items: data,
@@ -15,9 +16,10 @@ export default function contacts(state = initialState, action) {
 		case ADD_CONTACT:
 			return {
 				...state,
-				items: [...state.items, action.contact]
+				items: [...state.items, action.contact],
+				isEditing: action.contact
 			};
-		case EDIT_CONTACT:
+		case SET_EDITING_MODE:
 			return {
 				...state,
 				isEditing: action.contact

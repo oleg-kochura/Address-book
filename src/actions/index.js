@@ -1,6 +1,5 @@
 import {
 	ADD_CONTACT,
-	EDIT_CONTACT,
 	REMOVE_CONTACT,
 	UPDATE_CONTACT,
 	SET_ACTIVE_FILTER,
@@ -20,13 +19,6 @@ import { browserHistory } from 'react-router';
 export function onAddContact(contact) {
 	return {
 		type: ADD_CONTACT,
-		contact
-	};
-}
-
-export function onEditContact(contact) {
-	return {
-		type: EDIT_CONTACT,
 		contact
 	};
 }
