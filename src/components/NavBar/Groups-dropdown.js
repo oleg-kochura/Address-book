@@ -6,7 +6,7 @@ import AddGroup             from './Add-group';
 import GroupsList           from './GroupsList';
 
 
-class GroupsDropDown extends  Component {
+class GroupsDropDown extends Component {
 	state = {
 		isOpen: false,
 		addGroupMode: false,
@@ -37,7 +37,7 @@ class GroupsDropDown extends  Component {
 
 	render() {
 		const { groups, activeFilter, setActiveFilter } = this.props;
-		const { addGroupMode, inputValue} = this.state;
+		const { addGroupMode, inputValue } = this.state;
 
 		return (
 			<Nav>

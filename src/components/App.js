@@ -1,12 +1,12 @@
-import React            from 'react';
-import Navigation       from '../containers/Navigation';
-import DropDownContainer   from '../containers/DropDownContainer';
-import SearchContainer  from '../containers/SearchContainer';
+import React                from 'react';
+import NavigationContainer  from '../containers/NavigationContainer';
+import DropDownContainer    from '../containers/DropDownContainer';
+import SearchContainer      from '../containers/SearchContainer';
 
 
 const App = (props) => (
 	<div className="App">
-		<Navigation>
+		<NavigationContainer>
 			{
 				props.location.pathname === '/contacts' &&
 					<div>
@@ -14,10 +14,10 @@ const App = (props) => (
 						<DropDownContainer/>
 					</div>
 			}
-		</Navigation>
-
+		</NavigationContainer>
 
 		{props.children}
+
 	</div>
 );
 

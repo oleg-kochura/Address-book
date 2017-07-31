@@ -1,6 +1,4 @@
 import React                from 'react';
-import { connect }          from 'react-redux';
-import { onFormAdding }     from '../actions';
 import { Nav }              from 'react-bootstrap';
 import { NavItem }          from 'react-bootstrap';
 import { Navbar }           from 'react-bootstrap';
@@ -32,5 +30,4 @@ const Navigation = ({children, onFormAdding}) => (
 	</Navbar>
 );
 
-
-export default connect(null, { onFormAdding })(Navigation);
+export default Navigation;

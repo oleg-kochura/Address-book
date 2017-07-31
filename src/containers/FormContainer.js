@@ -24,6 +24,7 @@ const guid = () => {
 	return s4() + s4() + s4() + s4() + s4() + s4();
 };
 
+
 class FormContainer extends Component {
 
 	onValidateForm = (fields) => validateForm(getFieldsToValidate(fields));
