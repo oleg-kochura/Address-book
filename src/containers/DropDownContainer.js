@@ -1,7 +1,7 @@
 import { connect }          from 'react-redux';
 import { setActiveFilter }  from '../actions';
 import { addNewGroup }      from '../actions';
-import GroupsDropDown       from '../components/Groups-dropdown';
+import GroupsDropDown       from '../components/NavBar/Groups-dropdown';
 
 
 const mapStateToProps = ({groups, common: {activeFilter}}) => {

@@ -2,7 +2,7 @@ import React                        from 'react';
 import { FormGroup }                from 'react-bootstrap';
 import { ControlLabel }             from 'react-bootstrap';
 import { FormControl }              from 'react-bootstrap';
-import { getFieldValidationState }  from '../validation/validate';
+import { getFieldValidationState }  from '../../validation/validate';
 import InputMask                    from 'react-input-mask';
 
 

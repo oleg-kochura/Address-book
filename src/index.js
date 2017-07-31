@@ -6,7 +6,7 @@ import { Provider }             from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import reducer                  from './reducers';
 import App                      from './components/App';
-import AddContact               from './components/Add-contact';
+import AddContact               from './components/AddContact/Add-contact';
 import TableContainer           from './containers/TableContainer';
 import Home                     from './components/Home';
 import EditContact              from './containers/Edit-contact';

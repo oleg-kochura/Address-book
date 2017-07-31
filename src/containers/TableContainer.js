@@ -1,6 +1,6 @@
 import { connect }          from 'react-redux';
 import { onRemoveContact }  from '../actions';
-import Table                from '../components/Table';
+import Table                from '../components/Contacts/Table';
 
 
 const getVisibleContacts = (contacts, activeFilter, search) => {

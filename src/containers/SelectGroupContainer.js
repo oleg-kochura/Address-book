@@ -1,5 +1,5 @@
 import { connect }  from 'react-redux';
-import SelectGroup  from '../components/Select-group';
+import SelectGroup  from '../components/Form/Select-group';
 
 
 const mapStateToProps = ({groups, fields}) => {

@@ -1,5 +1,5 @@
 import { connect }          from 'react-redux';
-import FieldsList           from '../components/Fields-list';
+import FieldsList           from '../components/Form/Fields-list';
 import { getFieldsToValidate }  from '../validation/validate';
 
 const sorting = (a, b) => {

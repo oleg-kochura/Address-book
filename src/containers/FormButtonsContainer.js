@@ -2,8 +2,8 @@ import React                  from 'react';
 import { connect }            from 'react-redux';
 import { onFormReset }        from '../actions';
 import { onToggleModal }      from '../actions';
-import AddContactFormButtons  from '../components/AddContactFormButtons';
-import EditContactFormButtons from '../components/EditContactFormButtons';
+import AddContactFormButtons  from '../components/Form/AddContactFormButtons';
+import EditContactFormButtons from '../components/Form/EditContactFormButtons';
 
 
 const FormButtonsContainer = ({form, onFormReset, onToggleModal}) => (

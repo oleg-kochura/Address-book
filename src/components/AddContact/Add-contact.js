@@ -1,6 +1,6 @@
 import React                    from 'react';
-import PopupContainer           from '../containers/PopupContainer';
-import FormContainer            from '../containers/FormContainer';
+import PopupContainer           from '../../containers/PopupContainer';
+import FormContainer            from '../../containers/FormContainer';
 
 const AddContact = () => (
 	<div>
