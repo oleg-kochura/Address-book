@@ -16,8 +16,8 @@ const filteredContacts = createSelector(
 	(contacts, activeFilter, search) => {
 
 		const sortByName = (a, b) => {
-			if (a.firstName > b.firstName) return 1;
-			if (a.firstName < b.firstName) return -1;
+			if (a.firstName.toLowerCase() > b.firstName.toLowerCase()) return 1;
+			if (a.firstName.toLowerCase() < b.firstName.toLowerCase()) return -1;
 		};
 
 		const filterBySearch = (contact) =>

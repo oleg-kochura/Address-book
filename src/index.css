@@ -77,3 +77,7 @@ form:not(.add-group) {
 .btn-group-justified>.btn-group {
   border: 1px solid white;
 }
+
+.navbar-brand {
+  font-size: 22px;
+}

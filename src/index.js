@@ -4,7 +4,7 @@ import {
 	Router,
 	Route,
 	IndexRoute,
-	browserHistory
+	hashHistory
 }                               from 'react-router';
 import {
 	createStore,
@@ -26,7 +26,7 @@ const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 
 ReactDOM.render(
 	<Provider store={store}>
-		<Router history={browserHistory}>
+		<Router history={hashHistory}>
 			<Route path="/" component={App}>
 				<IndexRoute component={Home} />
 				<Route path="add-contact" component={AddContact}/>

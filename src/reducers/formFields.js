@@ -35,6 +35,7 @@ export default function fields(state = clone(formFields), action) {
 				fields[key].value = '';
 				fields[key].isValid = null;
 			}
+			fields['group'].value = 'General';
 			return fields;
 		case SET_ADDING_MODE:
 			return Object.assign({}, state, clone(formFields));
