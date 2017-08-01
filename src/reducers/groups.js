@@ -1,5 +1,6 @@
 import { ADD_GROUP } from '../constants';
 
+
 const initialState = [ 'General', 'Family', 'Work', 'Friends'];
 
 export default function groups(state = initialState, action) {

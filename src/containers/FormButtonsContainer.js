@@ -10,12 +10,9 @@ const FormButtonsContainer = ({form, onFormReset, onToggleModal}) => (
 
 	form.isEditing
 
-		? <EditContactFormButtons formIsValid={form.formIsValid}
-		                          onFormReset={onFormReset}/>
+		? <EditContactFormButtons formIsValid={form.formIsValid} onFormReset={onFormReset}/>
 
-		: <AddContactFormButtons formIsValid={form.formIsValid}
-		                         onFormReset={onFormReset}
-		                         onToggleModal={onToggleModal}/>
+		: <AddContactFormButtons formIsValid={form.formIsValid} onFormReset={onFormReset} onToggleModal={onToggleModal}/>
 
 );
 

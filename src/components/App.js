@@ -9,10 +9,12 @@ const App = (props) => (
 		<NavigationContainer>
 			{
 				props.location.pathname === '/contacts' &&
+
 					<div>
 						<SearchContainer/>
 						<DropDownContainer/>
 					</div>
+
 			}
 		</NavigationContainer>
 

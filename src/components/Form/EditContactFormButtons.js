@@ -1,11 +1,19 @@
-import React      from 'react';
-import { Button } from 'react-bootstrap';
+import React            from 'react';
+import { Button }       from 'react-bootstrap';
+import { ButtonGroup }  from 'react-bootstrap';
 
 const EditContactFormButtons = ({formIsValid, onFormReset}) => (
-	<div>
-		<Button type="submit" disabled={!formIsValid}>Save changes</Button>
-		<Button onClick={onFormReset}>Reset form</Button>
-	</div>
+	<ButtonGroup justified>
+
+		<ButtonGroup>
+			<Button type="submit" disabled={!formIsValid}>Save changes</Button>
+		</ButtonGroup>
+
+		<ButtonGroup>
+			<Button onClick={onFormReset}>Reset form</Button>
+		</ButtonGroup>
+
+	</ButtonGroup>
 );
 
 export default EditContactFormButtons;

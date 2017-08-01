@@ -2,7 +2,8 @@ import {
 	VALIDATE_FORM,
 	SET_EDITING_MODE,
 	SET_ADDING_MODE,
-} from '../constants';
+}                     from '../constants';
+
 
 const initialState = {
 	formIsValid: false,

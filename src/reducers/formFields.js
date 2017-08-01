@@ -1,13 +1,13 @@
-import { formFields } from '../formModel.js';
+import { formFields }     from '../formModel.js';
 import {
 	ADD_FIELD,
 	UPDATE_FIELD,
 	RESET_FORM_FIELDS,
 	SET_ADDING_MODE,
 	SET_EDITING_MODE
-} from '../constants';
+}                         from '../constants';
+import clone              from 'clone';
 
-import clone                from 'clone';
 
 export default function fields(state = clone(formFields), action) {
 	switch (action.type) {

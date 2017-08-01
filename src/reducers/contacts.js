@@ -1,10 +1,11 @@
-import { data } from '../data';
+import { data }     from '../data';
 import {
 	ADD_CONTACT,
 	REMOVE_CONTACT,
 	UPDATE_CONTACT,
 	SET_EDITING_MODE
-} from '../constants';
+}                   from '../constants';
+
 
 const initialState = {
 	items: data,

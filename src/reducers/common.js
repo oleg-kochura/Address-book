@@ -2,7 +2,8 @@ import {
 	SET_ACTIVE_FILTER,
 	SEARCH_CONTACT,
 	TOGGLE_MODAL_VIEW
-} from '../constants';
+}                         from '../constants';
+
 
 const initialState = {
 	activeFilter: 'General',

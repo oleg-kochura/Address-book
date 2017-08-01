@@ -1,9 +1,18 @@
 import React                    from 'react';
 import ReactDOM                 from 'react-dom';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-import { createStore, applyMiddleware  }          from 'redux';
+import {
+	Router,
+	Route,
+	IndexRoute,
+	browserHistory
+}                               from 'react-router';
+import {
+	createStore,
+	applyMiddleware
+}                               from 'redux';
+import thunk                    from 'redux-thunk';
 import { Provider }             from 'react-redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { composeWithDevTools }  from 'redux-devtools-extension';
 import reducer                  from './reducers';
 import App                      from './components/App';
 import AddContact               from './components/AddContact/Add-contact';
@@ -11,7 +20,7 @@ import TableContainer           from './containers/TableContainer';
 import Home                     from './components/Home';
 import EditContact              from './containers/Edit-contact';
 import './index.css';
-import thunk from 'redux-thunk';
+
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 

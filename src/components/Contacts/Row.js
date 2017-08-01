@@ -1,12 +1,12 @@
-import React              from 'react';
-import { Link }           from 'react-router';
-import { Glyphicon }      from 'react-bootstrap';
+import React          from 'react';
+import { Link }       from 'react-router';
+import { Glyphicon }  from 'react-bootstrap';
 
 const Row = ({index, contact, onRemove, isEditingContact}) => {
 
-	function setActiveRow() {
+	const setActiveRow = () => {
 		return contact.id === isEditingContact.id ? 'last-modified' : null;
-	}
+	};
 
 	return (
 		<tr className={isEditingContact && setActiveRow()}>
