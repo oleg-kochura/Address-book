@@ -8,7 +8,6 @@ const initialState =
 			.filter((item, i, arr) => item !== arr[i-1]);
 
 export default function groups(state = ['General',...initialState], action) {
-	console.log(state);
 	switch (action.type) {
 		case ADD_GROUP:
 			return 	[action.group, ...state];

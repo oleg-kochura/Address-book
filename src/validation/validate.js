@@ -30,9 +30,9 @@ export function getFieldValidationState(isValid) {
 
 export function getFieldsToValidate(fields) {
 	return Object.values(fields)
-		.filter(field => field.visible === true && field.name !== 'group');
+		.filter(field => field.visible && field.name !== 'group');
 }
 
 export function validateForm(fields) {
-	return fields.every(key => key.isValid === true || key.isValid === null);
+	return fields.every(key => key.isValid || key.isValid === null);
 }
