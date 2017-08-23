@@ -1,14 +1,235 @@
 {
   "contacts": [
-    { "id": 1, "title": "Post 1" },
-    { "id": 2, "title": "Post 2" },
-    { "id": 3, "title": "Post 3" }
-  ],
-  "tasks": [
-    { "id": 1, "body": "some comment", "postId": 1 },
-    { "id": 2, "body": "some comment", "postId": 1 }
-  ],
-  "text": {
-    "name": "typicode"
-  }
+    {
+      "id": "5961045c29c0d8f95de7d10a",
+      "firstName": "Short",
+      "lastName": "Summers",
+      "city": "Chical",
+      "country": "Western Sahara",
+      "email": "short.summers@undefined.net",
+      "workPhone": "(824) 567-3601",
+      "mobilePhone": "(941) 507-2343",
+      "group": "Family"
+    },
+    {
+      "id": "5961045cd997745b60e363db",
+      "firstName": "Samantha",
+      "lastName": "Sweet",
+      "city": "Ballico",
+      "country": "Antarctica",
+      "email": "samantha.sweet@undefined.com",
+      "workPhone": "(834) 598-3400",
+      "mobilePhone": "(948) 475-2560",
+      "group": "Friends"
+    },
+    {
+      "id": "5961045cfcb24736f4bf426f",
+      "firstName": "Lauri",
+      "lastName": "Ball",
+      "city": "Spokane",
+      "country": "Dominica",
+      "email": "lauri.ball@undefined.name",
+      "workPhone": "(890) 513-3259",
+      "mobilePhone": "(826) 584-2319",
+      "group": "Work"
+    },
+    {
+      "id": "5961045c4b39b89e58262ca9",
+      "firstName": "Elizabeth",
+      "lastName": "Cunningham",
+      "city": "Brandywine",
+      "country": "Guinea-Bissau",
+      "email": "elizabeth.cunningham@undefined.me",
+      "workPhone": "(829) 557-2514",
+      "mobilePhone": "(837) 432-3772",
+      "group": "Work"
+    },
+    {
+      "id": "5961045c70a96c1acaec98a5",
+      "firstName": "Megan",
+      "lastName": "Griffin",
+      "city": "Steinhatchee",
+      "country": "Nicaragua",
+      "email": "megan.griffin@undefined.co.uk",
+      "workPhone": "(978) 475-3169",
+      "mobilePhone": "(913) 551-3664",
+      "group": "Friends"
+    },
+    {
+      "id": "5961045c866bbf4322492c32",
+      "firstName": "Lowe",
+      "lastName": "Hogan",
+      "city": "Carrsville",
+      "country": "Cameroon",
+      "email": "lowe.hogan@undefined.ca",
+      "workPhone": "(937) 409-2260",
+      "mobilePhone": "(889) 484-3273",
+      "group": "Friends"
+    },
+    {
+      "id": "5961045c5f175e1d43d4e1a5",
+      "firstName": "Bradley",
+      "lastName": "Coffey",
+      "city": "Succasunna",
+      "country": "Haiti",
+      "email": "bradley.coffey@undefined.info",
+      "workPhone": "(815) 438-3122",
+      "mobilePhone": "(835) 582-3805",
+      "group": "Friends"
+    },
+    {
+      "id": "5961045c59a46e2ba9dc3b1c",
+      "firstName": "Madelyn",
+      "lastName": "Bates",
+      "city": "Concho",
+      "country": "Malaysia",
+      "email": "madelyn.bates@undefined.org",
+      "workPhone": "(884) 417-2513",
+      "mobilePhone": "(922) 466-2352",
+      "group": "Friends"
+    },
+    {
+      "id": "5961045c1380f67ffdfe35eb",
+      "firstName": "Galloway",
+      "lastName": "Wilcox",
+      "city": "Russellville",
+      "country": "Philippines",
+      "email": "galloway.wilcox@undefined.biz",
+      "workPhone": "(985) 590-3018",
+      "mobilePhone": "(975) 573-3182",
+      "group": "Work"
+    },
+    {
+      "id": "5961045cd8f54f57192b34e2",
+      "firstName": "Mandy",
+      "lastName": "Drake",
+      "city": "Greenfields",
+      "country": "Seychelles",
+      "email": "mandy.drake@undefined.biz",
+      "workPhone": "(894) 528-3762",
+      "mobilePhone": "(987) 459-2331",
+      "group": "Family"
+    },
+    {
+      "id": "5961045c110081bb5c0d494d",
+      "firstName": "Gray",
+      "lastName": "Cross",
+      "city": "Groton",
+      "country": "Germany",
+      "email": "gray.cross@undefined.tv",
+      "workPhone": "(983) 515-3427",
+      "mobilePhone": "(825) 416-3990",
+      "group": "Friends"
+    },
+    {
+      "id": "5961045c81b61513b6145bac",
+      "firstName": "Mcleod",
+      "lastName": "Washington",
+      "city": "Guthrie",
+      "country": "Namibia",
+      "email": "mcleod.washington@undefined.io",
+      "workPhone": "(842) 450-2957",
+      "mobilePhone": "(839) 443-2548",
+      "group": "Friends"
+    },
+    {
+      "id": "5961045c60100de28f30f244",
+      "firstName": "Juana",
+      "lastName": "Rowe",
+      "city": "Tecolotito",
+      "country": "Mali",
+      "email": "juana.rowe@undefined.net",
+      "workPhone": "(811) 511-2321",
+      "mobilePhone": "(922) 494-3665",
+      "group": "Work"
+    },
+    {
+      "id": "5961045c3b79e7a76ba32c38",
+      "firstName": "Eunice",
+      "lastName": "Roberts",
+      "city": "Fillmore",
+      "country": "Luxembourg",
+      "email": "eunice.roberts@undefined.com",
+      "workPhone": "(975) 416-3636",
+      "mobilePhone": "(930) 514-2871",
+      "group": "Family"
+    },
+    {
+      "id": "5961045cb60477d13c76bf85",
+      "firstName": "Cruz",
+      "lastName": "Calhoun",
+      "city": "Foscoe",
+      "country": "Tunisia",
+      "email": "cruz.calhoun@undefined.name",
+      "workPhone": "(848) 400-3935",
+      "mobilePhone": "(994) 526-3188",
+      "group": "Family"
+    },
+    {
+      "id": "5961045ccf23da55add459ab",
+      "firstName": "Sykes",
+      "lastName": "Ellison",
+      "city": "Sanders",
+      "country": "Yemen",
+      "email": "sykes.ellison@undefined.me",
+      "workPhone": "(926) 575-2912",
+      "mobilePhone": "(834) 560-2556",
+      "group": "Family"
+    },
+    {
+      "id": "5961045ceaadc4c09b77410b",
+      "firstName": "Gilbert",
+      "lastName": "Bernard",
+      "city": "Gila",
+      "country": "Senegal",
+      "email": "gilbert.bernard@undefined.co.uk",
+      "workPhone": "(893) 567-3213",
+      "mobilePhone": "(859) 516-3144",
+      "group": "Friends"
+    },
+    {
+      "id": "5961045c9dfcf54f11d66588",
+      "firstName": "Livingston",
+      "lastName": "Castillo",
+      "city": "Elliston",
+      "country": "Turkey",
+      "email": "livingston.castillo@undefined.ca",
+      "workPhone": "(869) 482-3776",
+      "mobilePhone": "(863) 557-2963",
+      "group": "Work"
+    },
+    {
+      "id": "5961045cf8a527dc974bec5f",
+      "firstName": "Morris",
+      "lastName": "Weiss",
+      "city": "Sims",
+      "country": "Nauru",
+      "email": "morris.weiss@undefined.info",
+      "workPhone": "(975) 556-3256",
+      "mobilePhone": "(829) 460-2340",
+      "group": "Family"
+    },
+    {
+      "id": "5961045c36e9e06ab830bd6b",
+      "firstName": "Rodriquez",
+      "lastName": "Cain",
+      "city": "Castleton",
+      "country": "Uganda",
+      "email": "rodriquez.cain@undefined.org",
+      "workPhone": "(891) 581-3921",
+      "mobilePhone": "(885) 595-2681",
+      "group": "Family"
+    },
+    {
+      "id": "5961045ca5821b2537523541",
+      "firstName": "Alexandria",
+      "lastName": "Barry",
+      "city": "Woodburn",
+      "country": "Bosnia and Herzegovina",
+      "email": "alexandria.barry@undefined.biz",
+      "workPhone": "(912) 482-3965",
+      "mobilePhone": "(866) 425-2687",
+      "group": "Family"
+    }
+  ]
 }
