@@ -1,68 +1,14 @@
-[
-  {
-    "id": "5961045c29c0d8f95de7d10a",
-    "firstName": "Short",
-    "lastName": "Summers",
-    "city": "Chical",
-    "country": "Western Sahara",
-    "email": "short.summers@undefined.net",
-    "workPhone": "(824) 567-3601",
-    "mobilePhone": "(941) 507-2343",
-    "group": "Family"
-  },
-  {
-    "id": "5961045cd997745b60e363db",
-    "firstName": "Samantha",
-    "lastName": "Sweet",
-    "city": "Ballico",
-    "country": "Antarctica",
-    "email": "samantha.sweet@undefined.com",
-    "workPhone": "(834) 598-3400",
-    "mobilePhone": "(948) 475-2560",
-    "group": "Friends"
-  },
-  {
-    "id": "5961045cfcb24736f4bf426f",
-    "firstName": "Lauri",
-    "lastName": "Ball",
-    "city": "Spokane",
-    "country": "Dominica",
-    "email": "lauri.ball@undefined.name",
-    "workPhone": "(890) 513-3259",
-    "mobilePhone": "(826) 584-2319",
-    "group": "Work"
-  },
-  {
-    "id": "5961045c4b39b89e58262ca9",
-    "firstName": "Elizabeth",
-    "lastName": "Cunningham",
-    "city": "Brandywine",
-    "country": "Guinea-Bissau",
-    "email": "elizabeth.cunningham@undefined.me",
-    "workPhone": "(829) 557-2514",
-    "mobilePhone": "(837) 432-3772",
-    "group": "Work"
-  },
-  {
-    "id": "5961045c70a96c1acaec98a5",
-    "firstName": "Megan",
-    "lastName": "Griffin",
-    "city": "Steinhatchee",
-    "country": "Nicaragua",
-    "email": "megan.griffin@undefined.co.uk",
-    "workPhone": "(978) 475-3169",
-    "mobilePhone": "(913) 551-3664",
-    "group": "Friends"
-  },
-  {
-    "id": "5961045c866bbf4322492c32",
-    "firstName": "Lowe",
-    "lastName": "Hogan",
-    "city": "Carrsville",
-    "country": "Cameroon",
-    "email": "lowe.hogan@undefined.ca",
-    "workPhone": "(937) 409-2260",
-    "mobilePhone": "(889) 484-3273",
-    "group": "Friends"
+{
+  "posts": [
+    { "id": 1, "title": "Post 1" },
+    { "id": 2, "title": "Post 2" },
+    { "id": 3, "title": "Post 3" }
+  ],
+  "comments": [
+    { "id": 1, "body": "some comment", "postId": 1 },
+    { "id": 2, "body": "some comment", "postId": 1 }
+  ],
+  "profile": {
+    "name": "typicode"
   }
-]
+}
